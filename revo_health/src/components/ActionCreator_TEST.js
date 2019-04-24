@@ -20,11 +20,24 @@
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
 
+const Styled_container = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    background-color: grey;
+    padding: 15px;
+`;
+
 const Styled_div = styled.div`
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+
 
     align-items: flex-start;
+
+    button {
+        color: blue;
+    }
 `;
 
 class TESTcomponent extends Component {
@@ -59,7 +72,7 @@ class TESTcomponent extends Component {
 
     render() {
         return (
-            <>
+            <Styled_container>
                 <h2>HELLO FROM INSIDE TEST COMPONENT</h2>
 
                 <Styled_div>
@@ -74,7 +87,7 @@ class TESTcomponent extends Component {
                     <button onClick={this.addProcedure_onClick}>addPROCEDURE_start</button>
                     <button onClick={this.editProcedure_onClick}>editPROCEDURE_start</button>
                 </Styled_div>
-            </>
+            </Styled_container>
         )
     }
 }
