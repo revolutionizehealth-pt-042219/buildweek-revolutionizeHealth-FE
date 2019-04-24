@@ -6,19 +6,20 @@
         GET_USERS_FAILURE,
     } from '../actions/a_getUsers'
 
+    // Adding User
     import {
         ADD_USERS_START,
         ADD_USERS_SUCCESS,
         ADD_USERS_FAILURE,
     } from '../actions/a_addUser'
 
+    // Editing User
     import {
         EDIT_USERS_START,
         EDIT_USERS_SUCCESS,
         EDIT_USERS_FAILURE,
     } from '../actions/a_editUser'
 
-    // .. OTHER customer actions
 
 // Initial State
     const initialState = {
@@ -31,7 +32,6 @@
 
         is_editingUser: false
 
-        // OTHER customer action initial states
 
     }
 
@@ -52,6 +52,7 @@
                 return {
                     ...state,
 
+                    customers: action.payload,
                     is_gettingUsers: false,
                     error: ''
                 }
@@ -77,6 +78,7 @@
                 return {
                     ...state,
 
+                    customers: action.payload,
                     is_addingUser: false,
                     error: ''
                 }
@@ -102,6 +104,7 @@
                 return {
                     ...state,
 
+                    customers: action.payload,
                     is_editingUser: false,
                     error: ''
                 }
