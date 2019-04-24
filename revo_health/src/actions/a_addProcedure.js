@@ -10,7 +10,7 @@ export const ADD_PROCEDURE_SUCCESS = 'ADD_PROCEDURE_SUCCESS'
 export const ADD_PROCEDURE_FAILURE = 'ADD_PROCEDURE_FAILURE'
 
 // Action Creator
-    export const add_procedures = () => {
+    export const add_procedure = () => {
         console.log('inside add_procedure action creator')
 
         // Send First Action

@@ -10,7 +10,7 @@ export const EDIT_PROCEDURE_SUCCESS = 'EDIT_PROCEDURE_SUCCESS'
 export const EDIT_PROCEDURE_FAILURE = 'EDIT_PROCEDURE_FAILURE'
 
 // Action Creator
-    export const edit_procedures = () => {
+    export const edit_procedure = () => {
         console.log('inside edit_procedure action creator')
 
         // Send First Action

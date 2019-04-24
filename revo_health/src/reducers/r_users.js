@@ -88,7 +88,7 @@
                     ...state, 
 
                     is_addingUser: false,
-                    error:'FAILED to get users'
+                    error:'FAILED to add users'
                 }
 
         // Editing Users
@@ -114,7 +114,7 @@
                     ...state, 
 
                     is_editingUser: false,
-                    error:'FAILED to get users'
+                    error:'FAILED to edit users'
                 }
             
         // Default
