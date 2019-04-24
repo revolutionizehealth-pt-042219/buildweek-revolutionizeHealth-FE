@@ -2,7 +2,7 @@
     import { combineReducers } from 'redux'
 
 // REDUCERS
-    import { users_reducer } from '../reducers/r_customers'
+    import { users_reducer } from './r_users'
 
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
