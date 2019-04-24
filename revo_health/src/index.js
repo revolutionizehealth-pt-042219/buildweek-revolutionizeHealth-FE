@@ -12,13 +12,13 @@
     import { compose } from 'redux'
 
 // RECUCERS 
-    import { rootReducer } from './reducers'
+    import { rootReducer } from './reducers/index'
 
 // COMPONENTS
     import App from './App';
 
 // CSS
-    import './index.css';
+    // import './index.css';
 
 // -- *** -- *** START CODE -- *** -- *** // 
 // -- *** -- *** START CODE -- *** -- *** //
