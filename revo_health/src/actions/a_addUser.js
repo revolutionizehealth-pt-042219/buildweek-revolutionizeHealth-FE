@@ -10,7 +10,12 @@
     export const ADD_USERS_FAILURE = 'ADD_USERS_FAILURE'
 
 // Action Creator
-    export const add_user = () => {
+    export const add_user = newUser => {
+        console.log(newUser)
+            // newUser NEEDS TO INCLUDE 
+                //  1) Name
+                //  2) Email
+                //  3) Insurance { ins_bool & ins_name }
 
     // Send First Action
         return (dispatch) => {

@@ -12,6 +12,12 @@
         ADD_USERS_FAILURE,
     } from '../actions/a_addUser'
 
+    import {
+        EDIT_USERS_START,
+        EDIT_USERS_SUCCESS,
+        EDIT_USERS_FAILURE,
+    } from '../actions/a_editUser'
+
     // .. OTHER customer actions
 
 // Initial State
@@ -19,7 +25,11 @@
         customers: [],
         error: '', 
 
-        is_gettingUsers: false
+        is_gettingUsers: false,
+
+        is_addingUser: false,
+
+        is_editingUser: false
 
         // OTHER customer action initial states
 
@@ -59,7 +69,7 @@
                 return {
                     ...state,
 
-                    is_gettingUsers: true,
+                    is_addingUser: true,
                     error: ''
                 }
         
@@ -67,7 +77,7 @@
                 return {
                     ...state,
 
-                    is_gettingUsers: false,
+                    is_addingUser: false,
                     error: ''
                 }
             
@@ -75,7 +85,32 @@
                 return {
                     ...state, 
 
-                    is_gettingUsers: false,
+                    is_addingUser: false,
+                    error:'FAILED to get users'
+                }
+
+        // Editing Users
+            case EDIT_USERS_START: 
+                return {
+                    ...state,
+
+                    is_editingUser: true,
+                    error: ''
+                }
+        
+            case EDIT_USERS_SUCCESS:
+                return {
+                    ...state,
+
+                    is_editingUser: false,
+                    error: ''
+                }
+            
+            case EDIT_USERS_FAILURE:
+                return {
+                    ...state, 
+
+                    is_editingUser: false,
                     error:'FAILED to get users'
                 }
             
