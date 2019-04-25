@@ -1,4 +1,30 @@
+// REACT
 import React, { Component } from "react";
+
+// Styled Components
+import styled from "styled-components";
+
+// STYLED COMPONENTS
+const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #7eb2dd;
+  margin: auto 0;
+`;
+
+const LoginForm = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  padding: 10px 0px;
+`;
+
+// -- *** START CODE *** -- //
+// -- *** START CODE *** -- //
 
 class Login extends Component {
   constructor(props) {
@@ -24,10 +50,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container-login-form">
-        <form className="login-form">
+      <LoginContainer>
+        <LoginForm>
           <div className="login-text">
-            Log in to see all of your own procedures.
+            Log in to see all of your own procedures!
           </div>
           <input
             className="login-input"
@@ -48,8 +74,8 @@ class Login extends Component {
           <button onClick={this.handleLoginSubmit} className="login-button">
             Log In
           </button>
-        </form>
-      </div>
+        </LoginForm>
+      </LoginContainer>
     );
   }
 }

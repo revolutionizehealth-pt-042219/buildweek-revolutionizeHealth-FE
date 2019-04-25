@@ -14,25 +14,39 @@ function App() {
     <div className="App">
       <h2>Hello from App</h2>
 
-      <ComponentWithAuthenticate />
-    </div>
-  );
-}
-
-const ComponentWithAuthenticate = withAuthenticate(TESTcomponent)(LoginPage);
-
-export default App;
-
-/* App before implimenting Authentication
-function App() {
-  return (
-    <div className="App">
-      <h2>Hello from App</h2>
-
       <TESTcomponent />
     </div>
   );
 }
 
 export default App;
+
+/* APP BEFORE AUTHENTICATION
+  function App() {
+    return (
+      <div className="App">
+        <h2>Hello from App</h2>
+
+        <TESTcomponent />
+      </div>
+    );
+  }
+
+  export default App;
+*/
+
+/*APP AFTER AUTHENTICATION
+  function App() {
+    return (
+      <div className="App">
+        <h2>Hello from App</h2>
+
+        <ComponentWithAuthenticate />
+      </div>
+    );
+  }
+
+  const ComponentWithAuthenticate = withAuthenticate(TESTcomponent)(LoginPage);
+
+  export default App;
 */
