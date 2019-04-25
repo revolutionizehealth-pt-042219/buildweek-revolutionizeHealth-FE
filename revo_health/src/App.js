@@ -3,6 +3,10 @@
 
 // COMPONENTS
   import TESTcomponent from './components/ActionCreator_TEST'
+  import Header from './components/Header'
+  import UserComponent from './components/UserComponent'
+  import Footer from './components/Footer'
+
 
 // CSS
   import './App.css';
@@ -12,7 +16,11 @@ function App() {
     <div className="App">
       <h2>Hello from App</h2>
 
-      <TESTcomponent />
+      {/* <TESTcomponent /> */}
+
+      <Header />
+      <UserComponent />
+      <Footer />
     </div>
   );
 }

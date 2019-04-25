@@ -108,7 +108,7 @@
             
             case EDIT_PROCEDURE_FAILURE:
                 return {
-                    ..state, 
+                    ...state, 
 
                     is_addingProcedures: false,
                     error: 'FAILED to edit procedure'
