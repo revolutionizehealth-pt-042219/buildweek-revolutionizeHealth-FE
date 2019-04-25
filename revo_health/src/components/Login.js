@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import "./Login.css";
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -11,10 +9,13 @@ class Login extends Component {
     };
   }
 
+  // When typing in the username/password, it gets saved into state.
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // Submitting the form will set a "User" in local storage. within 'withAuthenticate'
+  // it checks to see if it's present, and if so, you're considered logged in.
   handleLoginSubmit = e => {
     const user = this.state.username;
     localStorage.setItem("user", user);
