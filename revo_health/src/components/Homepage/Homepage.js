@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 // COMPONENT
 import FilterBar from "./FilterBar";
 import ProcedureList from "./ProcedureList";
+import Map from "./Map";
 
 // Styled Compoennts
 import styled from "styled-components";
@@ -26,12 +27,11 @@ class Homepage extends Component {
   render() {
     return (
       <div className="homepage-container">
-        <h1>hi from Homepage Component</h1>
+        <h1>Hello from Homepage Component</h1>
         <FilterBar />
         <StyledHomepageBody>
-          <div>
-            <ProcedureList />
-          </div>
+          <ProcedureList />
+          <Map />
         </StyledHomepageBody>
       </div>
     );

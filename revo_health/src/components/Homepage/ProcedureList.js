@@ -54,6 +54,8 @@ class ProcedureList extends Component {
           <Procedure />
           <Procedure />
           <Procedure />
+          <Procedure />
+          <Procedure />
 
           <LoadMore_Button_Container>
             <Fab color="primary" aria-label="">
