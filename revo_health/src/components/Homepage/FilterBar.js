@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 // COMPONENTS
 
 // MATERIAL UI
+import { Card, CardContent, Typography, Fab } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
 
 // import {} from '';
 
@@ -29,17 +31,12 @@ const StyledInput = styled.input`
   width: 80%;
 `;
 
-const StyledAddButton = styled.div`
-  margin: 0px 20px;
-  padding: 10px;
-  background: #00dd00;
-  border-radius: 50%;
-`;
-
 const FilterBar = () => {
   return (
     <StyledSearchBarContainer>
-      <StyledAddButton>+</StyledAddButton>
+      <Fab color="primary" aria-label="">
+        <AddIcon />
+      </Fab>
       <StyledInput type="text" placeholder="Search" className="search-bar" />
     </StyledSearchBarContainer>
   );
