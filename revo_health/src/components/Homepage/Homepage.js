@@ -7,8 +7,7 @@ import { connect } from "react-redux";
 // IMPORT ACTION CREATORS
 
 // COMPONENT
-// import UserProfile from "./UserProfile";
-// import PersonalProcedures from "./PersonalProcedures";
+import FilterBar from "./FilterBar";
 
 // Styled Compoennts
 import styled from "styled-components";
@@ -18,7 +17,12 @@ import styled from "styled-components";
 
 class Homepage extends Component {
   render() {
-    return <h1>hi from Homepage Component</h1>;
+    return (
+      <div className="homepage-container">
+        <h1>hi from Homepage Component</h1>
+        <FilterBar />
+      </div>
+    );
   }
 }
 
