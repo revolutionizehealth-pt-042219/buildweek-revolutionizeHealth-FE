@@ -2,15 +2,20 @@
 import React from "react";
 
 // COMPONENTS
-import TESTcomponent from "./components/ActionCreator_TEST";
-import Header from "./components/Header";
-import UserComponent from "./components/UserComponent";
-import Footer from "./components/Footer";
-import withAuthenticate from "./authentication/withAuthenticate";
-import LoginPage from "./components/Login";
+  // Test Component
+    import TESTcomponent from "./components/ActionCreator_TEST";
+    
+  // Login & Authentication
+    import LoginPage from "./components/Login";
+    import withAuthenticate from "./authentication/withAuthenticate";
+
+  // Standard Components
+    import Header from "./components/Header";
+    import UserComponent from "./components/UserComponent/UserComponent";
+    import Footer from "./components/Footer";
 
 // CSS
-import "./App.css";
+  import "./App.css";
 
 function App() {
   return (

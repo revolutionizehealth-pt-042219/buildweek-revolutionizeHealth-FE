@@ -4,6 +4,13 @@ import React, { Component } from 'react'
 // REDUX
     import { connect } from 'react-redux'
 
+// MATERIAL UI
+    import {
+        AppBar, Toolbar
+    } from '@material-ui/core'
+
+    import MenuIcon from '@material-ui/icons/Menu';
+
 // IMPORT ACTION CREATORS
 
 
@@ -15,17 +22,37 @@ import React, { Component } from 'react'
 // -- *** START CODE *** -- //
 
 const FooterContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content : center;
 
-    padding: 0px 20px 
-    border: 1px solid black;
 `;
 
-const Footer_Title = styled.div`
+const Styled_AppBar = styled(AppBar)`
+    padding: 0px;
+`;
+
+const StyledToolbar = styled(Toolbar)`
+    display: flex;
+    flex-direction: column;
+
+    display: flex;
+    justify-content: space-around;  
+`;
+
+const FooterTitle = styled.div`
+
+`;
+
+const FooterContent_container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 100%;
 
 
+`;
+const FooterContent = styled.div`
+    display: flex;
+    flex-grow: 1;
 `;
 
 
@@ -33,11 +60,31 @@ class Footer extends Component {
 
     render() {
         return (
-            <FooterContainer>
+            <FooterContainer className='footerContainer'>
+                <Styled_AppBar className='AppBar_materialUI' position="static">
+                    
+                    <StyledToolbar className='ToolBar_materialUI'>
 
-                <Footer_Title>
-                    Footer Info
-                </Footer_Title>
+                        <FooterTitle>
+                            FOOTER COMPONENT TITLE
+                        </FooterTitle>
+                        <FooterContent_container>
+
+                            <FooterContent className='footerContent_1'>
+                                Footer Content Left
+                            </FooterContent>
+                            <FooterContent className='footerContent_2'>
+                                Footer Content Middle
+                            </FooterContent>
+                            <FooterContent className='footerContent_3'>
+                                Footer Content Right
+                            </FooterContent>
+
+                        </FooterContent_container>
+
+                    </StyledToolbar>
+
+                </Styled_AppBar>
 
             </FooterContainer>
         )

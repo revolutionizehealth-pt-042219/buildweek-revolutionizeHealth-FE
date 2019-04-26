@@ -6,6 +6,13 @@ import React, { Component } from 'react'
 
 // IMPORT ACTION CREATORS
 
+// MATERIAL UI
+    import {
+        AppBar, Toolbar, IconButton
+    } from '@material-ui/core'
+
+    import MenuIcon from '@material-ui/icons/Menu';
+
 // Styled Components
     import styled from 'styled-components'
 
@@ -14,41 +21,46 @@ import React, { Component } from 'react'
 // -- *** START CODE *** -- //
 
 const HeaderContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content : space-between;
 
-    padding: 0px 20px 
-    border: 1px solid black;
+`;
+
+
+const Styled_AppBar = styled(AppBar)`
+    padding: 0px;
+`;
+
+const StyledToolbar = styled(Toolbar)`
+    display: flex;
+
 `;
 
 const HeaderTitle = styled.div`
     display: flex;
+    flex-grow: 1;
 
-    border: .5px dashed black
-    font-size: 50px;
+    justify-content: center;
 `;
-
-const HeaderMenu = styled.div`
-    display: flex;
-
-    border: .5px dashed black
-    font-size: 25px;
-`;
-
-
 class Header extends Component {
 
     render() {
         return (
             <HeaderContainer>
-                <HeaderTitle>
-                    Header
-                </HeaderTitle>
+                <Styled_AppBar className='AppBar_materialUI' position="static">
+                    
+                    <StyledToolbar className='ToolBar_materialUI'>
+                        
+                        <IconButton color="inherit" aria-label="Menu">
+                            <MenuIcon />
+                        </IconButton>
 
-                <HeaderMenu>
-                    Menu
-                </HeaderMenu>
+                        <HeaderTitle>
+                            USER COMPONENT TITLE
+                        </HeaderTitle>
+
+                    </StyledToolbar>
+
+                </Styled_AppBar>
+
             </HeaderContainer>
         )
     }
