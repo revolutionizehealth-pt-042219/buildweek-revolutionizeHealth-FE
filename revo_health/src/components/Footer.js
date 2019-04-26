@@ -5,11 +5,11 @@ import React, { Component } from 'react'
     import { connect } from 'react-redux'
 
 // MATERIAL UI
-import {
-    AppBar, Toolbar
-} from '@material-ui/core'
+    import {
+        AppBar, Toolbar
+    } from '@material-ui/core'
 
-import MenuIcon from '@material-ui/icons/Menu';
+    import MenuIcon from '@material-ui/icons/Menu';
 
 // IMPORT ACTION CREATORS
 
