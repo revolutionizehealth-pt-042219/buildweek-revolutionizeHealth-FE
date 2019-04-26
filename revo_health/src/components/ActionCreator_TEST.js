@@ -14,7 +14,7 @@ import { get_procedures } from "../actions/a_getProcedures";
 import { add_procedure } from "../actions/a_addProcedure";
 import { edit_procedure } from "../actions/a_editProcedure";
 
-// Styled Compoennts
+// Styled Components
 import styled from "styled-components";
 
 // -- *** START CODE *** -- //
