@@ -66,7 +66,7 @@ class Footer extends Component {
                     <StyledToolbar className='ToolBar_materialUI'>
 
                         <FooterTitle>
-                            USER COMPONENT TITLE
+                            FOOTER COMPONENT TITLE
                         </FooterTitle>
                         <FooterContent_container>
 
