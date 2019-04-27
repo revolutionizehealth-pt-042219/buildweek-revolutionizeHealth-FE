@@ -28,7 +28,7 @@ function App() {
 
       {/* <Header /> */}
       <Route path="/" component={Header} />
-
+    
       {/* <UserComponent /> */}
       <Route exact path="/user" component={UserComponent} />
 

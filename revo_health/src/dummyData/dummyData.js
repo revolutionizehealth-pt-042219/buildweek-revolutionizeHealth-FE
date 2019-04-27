@@ -1,4 +1,4 @@
-const patients = [{
+export const patients = [{
 	"id":1,
 	"username":"test1",
 	"first_name":"Phil",
@@ -49,11 +49,11 @@ const patients = [{
 	"type":"patient"
 }]
 
-const procedures = [
+export const procedures = [
 {
 	"id":1,
-	"user_id":1
-	"username":"anonymous"
+	"user_id":1,
+	"username":"anonymous",
 	"procedure_name":"tonsillectomy",
 	"hosptial_name":"Mercy Hospital",
 	"city":"Pine Bluff",
@@ -68,13 +68,13 @@ const procedures = [
 },
 {
 	"id":2,
-	"user_id":2
-	"username":"test2"
+	"user_id":2,
+	"username":"test2",
 	"procedure_name":"tonsillectomy",
 	"hosptial_name":"Generic Hospital",
 	"city":"Pine Bluff",
 	"state":"AR",
-	"zip":71601
+	"zip":71601,
 	"street":"1601 S Cherry St",
 	"docotor":"Dr. Red",
 	"procedure_cost":5000,
@@ -84,13 +84,13 @@ const procedures = [
 },
 {
 	"id":3,
-	"user_id":3
-	"username":"test3"
+	"user_id":3,
+	"username":"test3",
 	"procedure_name":"tonsillectomy",
 	"hosptial_name":"Jefferson Regional Medical Center",
 	"city":"Pine Bluff",
 	"state":"AR",
-	"zip":71603
+	"zip":71603,
 	"street":"1600 W 40th Ave",
 	"docotor":"Dr. Red",
 	"procedure_cost":3000,
@@ -100,13 +100,13 @@ const procedures = [
 },
 {
 	"id":4,
-	"user_id":4
-	"username":"test4"
+	"user_id":4,
+	"username":"test4",
 	"procedure_name":"tonsillectomy",
 	"hosptial_name":"Memphis Zoo",
 	"city":"Memphis",
 	"state":"TN",
-	"zip":38112
+	"zip":38112,
 	"street":"2000 Prentiss Pl",
 	"docotor":"Dr. Octopus",
 	"procedure_cost":1000,
@@ -116,13 +116,13 @@ const procedures = [
 },
 {
 	"id":5,
-	"user_id":1
-	"username":"anonymous"
+	"user_id":1,
+	"username":"anonymous",
 	"procedure_name":"tonsillectomy",
 	"hosptial_name":"Meeman-Shelby Forest State Park",
 	"city":"Millington",
 	"state":"TN",
-	"zip":38053
+	"zip":38053,
 	"street":"910 Riddick Rd",
 	"docotor":"Karen",
 	"procedure_cost":200,
