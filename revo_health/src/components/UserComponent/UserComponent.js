@@ -28,8 +28,8 @@ class UserComponent extends Component {
         return (
             <UserContainer>
                 
-                <UserProfile />
-                <PersonalProcedures />
+                <UserProfile people={this.props.dummyPatients}/>
+                <PersonalProcedures procedures={this.props.dummyProcedures} />
                 
             </UserContainer>
         )
@@ -37,6 +37,13 @@ class UserComponent extends Component {
 }
 
 // Map State To Props
+    const mapStateToProps = state => {
+        return {
+            dummyPatients: state.dummyPatients,
+            dummyProcedures: state.dummyProcedures
+        }
+    }
+
 
 // Connect
-    export default connect(null, {})(UserComponent)
+    export default connect(mapStateToProps, {})(UserComponent)
