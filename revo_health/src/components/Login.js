@@ -4,23 +4,50 @@ import React, { Component } from "react";
 // Styled Components
 import styled from "styled-components";
 
-// STYLED COMPONENTS
+// MATERIAL UI
+
+
+import {
+  Avatar,
+  Button,
+  FormControl,
+  Input,
+  InputLabel,
+  Paper,
+  Typography,
+} from '@material-ui/core'
+
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+
+
+
+
+
+// // STYLED COMPONENTS
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
 
-  background-color: #7eb2dd;
-  margin: auto 0;
+
 `;
 
-const LoginForm = styled.div`
+const Styled_Avatar = styled(Avatar)`
   display: flex;
   justify-content: center;
-  align-items: center;
+`;
 
+const Styled_Paper = styled(Paper)`
+  
+  display: flex;
   flex-direction: column;
-  padding: 10px 0px;
+  align-items: center;
+  
+  margin-top: 30px;
+  padding: 20px;
+`;
+
+const Styled_Button = styled(Button)`
+  margin-top: 30px;
 `;
 
 // -- *** START CODE *** -- //
@@ -43,38 +70,56 @@ class Login extends Component {
   // Submitting the form will set a "User" in local storage. within 'withAuthenticate'
   // it checks to see if it's present, and if so, you're considered logged in.
   handleLoginSubmit = e => {
+    e.preventDefault()
     const user = this.state.username;
     localStorage.setItem("user", user);
-    window.location.reload();
+    // window.location.reload();
   };
 
   render() {
     return (
-      <LoginContainer>
-        <LoginForm>
-          <div className="login-text">
-            Log in to see all of your own procedures!
-          </div>
-          <input
-            className="login-input"
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
-          />
-          <input
-            className="login-input"
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <button onClick={this.handleLoginSubmit} className="login-button">
-            Log In
-          </button>
-        </LoginForm>
+      <LoginContainer className='loginContainer'>
+        <Styled_Paper className='paperWrapper'>
+          
+          <Avatar>
+            <LockOutlinedIcon />
+          </Avatar>
+
+          <Typography component="h1" variant="h5">
+            Log in
+          </Typography>
+
+          <form>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel>
+                UserName
+              </InputLabel>
+              <Input name="username" />
+            </FormControl>
+
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel>
+                Password
+              </InputLabel>
+              <Input name="password" type="password"/>
+            </FormControl>
+
+            <Styled_Button
+              className='signIn_Button'
+              onClick={this.handleLoginSubmit}
+
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            
+            >
+              Log in
+            </Styled_Button>
+          </form>
+
+        </Styled_Paper>
+
       </LoginContainer>
     );
   }
