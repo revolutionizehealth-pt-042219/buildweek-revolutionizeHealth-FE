@@ -10,7 +10,12 @@ import { connect } from "react-redux";
 import Procedure from "../UserComponent/Procedure";
 
 // MATERIAL UI
-import { Card, CardContent, Typography, Fab } from "@material-ui/core";
+import { 
+  Card, 
+  // CardContent, 
+  // Typography, 
+  Fab 
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 // import {} from '';

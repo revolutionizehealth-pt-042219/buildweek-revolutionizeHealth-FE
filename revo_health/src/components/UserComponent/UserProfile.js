@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 // MATERIAL UI
     import {
         Card, CardContent,
-        Typography,
+        // Typography,
         Avatar
     } from '@material-ui/core'
 
