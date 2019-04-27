@@ -36,6 +36,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     dummyPatients: patients,
     dummyProcedures: procedures,
 
+
+
+    
     // DONT KNOW HOW ELSE TO GET THIS TO RENDER WITH APPROPRAITE INITIAL STATES
     users_reducer: {
       customers: [],

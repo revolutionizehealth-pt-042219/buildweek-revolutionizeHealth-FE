@@ -51,16 +51,25 @@ const LoadMore_Button_Container = styled.div`
 
 class ProcedureList extends Component {
   render() {
+
+    console.log(this.props)
+
     return (
       <ProcedureListContainer>
         <Styled_Card>
           <ProceduresTitle>Procedures Title</ProceduresTitle>
 
+          {
+            this.props.dummyProcedures.map( procedure => {
+              return <Procedure procedure={procedure}/>
+            })
+          }
+
+          {/* <Procedure />
           <Procedure />
           <Procedure />
           <Procedure />
-          <Procedure />
-          <Procedure />
+          <Procedure /> */}
 
           <LoadMore_Button_Container>
             <Fab color="primary" aria-label="">
@@ -74,9 +83,15 @@ class ProcedureList extends Component {
 }
 
 // Map State To Props
+const mapStateToProps = state => {
+  return {
+      dummyPatients: state.dummyPatients,
+      dummyProcedures: state.dummyProcedures
+  }
+}
 
 // Connect
 export default connect(
-  null,
+  mapStateToProps,
   {}
 )(ProcedureList);

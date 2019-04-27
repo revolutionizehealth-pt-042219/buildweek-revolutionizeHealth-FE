@@ -51,17 +51,27 @@ const LoadMore_Button_Container = styled.div`
 
 class PersonalProcedures extends Component {
   render() {
+    console.log(this.props)
+    console.log(this.props.procedures)
+
     return (
       <PersonalProcedures_Container className="PersonalProcedures_Container">
         <Styled_Card>
           <Styled_CardContent>
             <PersonalProcedures_Title>
-              Personal Procedures Title
+              Your Logged Procedures
             </PersonalProcedures_Title>
 
+            {/* Map and return appropraite # of Procedures */}
+            {
+              this.props.procedures.map( procedure => {
+                return <Procedure procedure={procedure}/>
+              })
+            }
+            
+            {/* <Procedure />
             <Procedure />
-            <Procedure />
-            <Procedure />
+            <Procedure /> */}
 
             <LoadMore_Button_Container>
               <Fab color="primary" aria-label="">

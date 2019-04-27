@@ -44,16 +44,31 @@ const ProfileInfo = styled.div`
 
 class UserProfile extends Component {
 
+    
     render() {
+        console.log(this.props)
+        
+        //WHAT USER??
+            const UserIndex = 2
+
         return (
             <Styled_Card className='userProfile'>
                 <Styled_CardContent>
 
                     <Avatar alt="User#" src="" className='avatarIMG' />
                     <ProfileInfo>
-                        <h2>Name</h2>
-                        <h3>Email</h3>
-                        <h4>Favorite Ice Cream</h4>
+                        <h2>{ this.props.people[UserIndex].first_name +" "+ this.props.people[UserIndex].last_name }</h2>
+                        <h3>{ 'email:' +' '+ this.props.people[UserIndex].email}</h3>
+                        <h4>
+                            { 
+                                this.props.people[UserIndex].has_insurance ? 
+                                'Current Insurance:' +" "+ this.props.people[UserIndex].insurance_name 
+                                :
+                                <button>
+                                    Please Add Your Current Insurance
+                                </button> 
+                            }
+                        </h4>
                     </ProfileInfo>
 
                 </Styled_CardContent>
