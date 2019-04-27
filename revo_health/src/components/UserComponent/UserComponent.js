@@ -7,8 +7,10 @@
 // IMPORT ACTION CREATORS
 
 // COMPONENT
-    import UserProfile from './UserProfile'
-    import PersonalProcedures from './PersonalProcedures'
+    import Header from "../Header";
+        import UserProfile from './UserProfile'
+        import PersonalProcedures from './PersonalProcedures'
+    import Footer from "../Footer";
 
 // Styled Compoennts
     import styled from 'styled-components'
@@ -19,19 +21,20 @@
 const UserContainer = styled.div`
     display: flex; 
 
-
 `;
 
 class UserComponent extends Component {
 
     render() {
         return (
-            <UserContainer>
-                
-                <UserProfile people={this.props.dummyPatients}/>
-                <PersonalProcedures procedures={this.props.dummyProcedures} />
-                
-            </UserContainer>
+            <>
+            <Header />
+                <UserContainer>
+                        <UserProfile people={this.props.dummyPatients}/>
+                        <PersonalProcedures procedures={this.props.dummyProcedures} />
+                </UserContainer>
+            <Footer />
+            </>
         )
     }
 }
