@@ -9,8 +9,6 @@ import React, { Component } from 'react'
         AppBar, Toolbar
     } from '@material-ui/core'
 
-    import MenuIcon from '@material-ui/icons/Menu';
-
 // IMPORT ACTION CREATORS
 
 
@@ -69,7 +67,7 @@ class Footer extends Component {
                             FOOTER COMPONENT TITLE
                         </FooterTitle>
                         <FooterContent_container>
-
+                            
                             <FooterContent className='footerContent_1'>
                                 Footer Content Left
                             </FooterContent>

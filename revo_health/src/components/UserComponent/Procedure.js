@@ -11,7 +11,7 @@ import React, { Component } from 'react'
 // MATERIAL UI
     import {
         Card, CardContent,
-        Typography,
+        // Typography,
     } from '@material-ui/core'
     
 

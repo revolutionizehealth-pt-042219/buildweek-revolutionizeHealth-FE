@@ -1,5 +1,8 @@
 // REACT
-import React, { Component } from "react";
+import 
+  React, { 
+  // Component 
+} from "react";
 
 // REDUX
 import { connect } from "react-redux";
@@ -9,7 +12,11 @@ import { connect } from "react-redux";
 // COMPONENTS
 
 // MATERIAL UI
-import { Card, CardContent, Typography, Fab } from "@material-ui/core";
+import { 
+  // Card, CardContent, 
+  // Typography, 
+  Fab 
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 // import {} from '';

@@ -9,8 +9,12 @@ import { connect } from "react-redux";
 // COMPONENTS
 
 // MATERIAL UI
-import { Card, CardContent, Typography, Fab } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
+import { 
+  // Card, CardContent, 
+  // Typography, 
+  // Fab 
+} from "@material-ui/core";
+// import AddIcon from "@material-ui/icons/Add";
 
 // import {} from '';
 
