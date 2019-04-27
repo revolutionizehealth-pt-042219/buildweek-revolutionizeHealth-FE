@@ -27,15 +27,15 @@ function App() {
       {/* <TESTcomponent /> */}
 
       {/* <Header /> */}
-      <Route path="/" component={Header} />
-    
+      {/* <Route path="/" component={Header} /> */}
+
       {/* <UserComponent /> */}
       <Route exact path="/user" component={UserComponent} />
 
       <Route exact path="/" component={Homepage} />
 
       {/* <Footer /> */}
-      <Route path="/" component={Footer} />
+      {/* <Route path="/" component={Footer} /> */}
     </div>
   );
 }

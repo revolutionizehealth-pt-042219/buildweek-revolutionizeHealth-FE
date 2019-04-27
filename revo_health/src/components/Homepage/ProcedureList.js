@@ -10,11 +10,11 @@ import { connect } from "react-redux";
 import Procedure from "../UserComponent/Procedure";
 
 // MATERIAL UI
-import { 
-  Card, 
-  // CardContent, 
-  // Typography, 
-  Fab 
+import {
+  Card,
+  // CardContent,
+  // Typography,
+  Fab
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
@@ -51,19 +51,16 @@ const LoadMore_Button_Container = styled.div`
 
 class ProcedureList extends Component {
   render() {
-
-    console.log(this.props)
+    console.log(this.props);
 
     return (
       <ProcedureListContainer>
         <Styled_Card>
           <ProceduresTitle>Procedures Title</ProceduresTitle>
 
-          {
-            this.props.dummyProcedures.map( procedure => {
-              return <Procedure procedure={procedure}/>
-            })
-          }
+          {this.props.dummyProcedures.map(procedure => {
+            return <Procedure procedure={procedure} />;
+          })}
 
           {/* <Procedure />
           <Procedure />
@@ -85,10 +82,10 @@ class ProcedureList extends Component {
 // Map State To Props
 const mapStateToProps = state => {
   return {
-      dummyPatients: state.dummyPatients,
-      dummyProcedures: state.dummyProcedures
-  }
-}
+    dummyPatients: state.dummyPatients,
+    dummyProcedures: state.dummyProcedures
+  };
+};
 
 // Connect
 export default connect(
