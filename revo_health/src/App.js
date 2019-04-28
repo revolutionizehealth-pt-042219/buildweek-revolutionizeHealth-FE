@@ -20,9 +20,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-
       {/* <TESTcomponent /> */}
-  
+
       <Route exact path="/" component={Homepage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/user" component={UserComponent} />

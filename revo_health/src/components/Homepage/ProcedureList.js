@@ -10,11 +10,11 @@ import { connect } from "react-redux";
 import Procedure from "../UserComponent/Procedure";
 
 // MATERIAL UI
-import { 
-  Card, 
-  // CardContent, 
-  // Typography, 
-  Fab 
+import {
+  Card,
+  // CardContent,
+  // Typography,
+  Fab
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
@@ -33,7 +33,7 @@ const ProcedureListContainer = styled.div`
   width: 67%;
 `;
 
-const Styled_Card = styled(Card)``;
+const StyledCard = styled(Card)``;
 
 const ProceduresTitle = styled.h2`
   display: flex;
@@ -42,7 +42,7 @@ const ProceduresTitle = styled.h2`
   margin-top: 0px;
 `;
 
-const LoadMore_Button_Container = styled.div`
+const LoadMoreButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 
@@ -51,19 +51,16 @@ const LoadMore_Button_Container = styled.div`
 
 class ProcedureList extends Component {
   render() {
-
-    console.log(this.props)
+    console.log(this.props);
 
     return (
       <ProcedureListContainer>
-        <Styled_Card>
+        <StyledCard>
           <ProceduresTitle>Procedures Title</ProceduresTitle>
 
-          {
-            this.props.dummyProcedures.map( procedure => {
-              return <Procedure procedure={procedure}/>
-            })
-          }
+          {this.props.dummyProcedures.map(procedure => {
+            return <Procedure procedure={procedure} />;
+          })}
 
           {/* <Procedure />
           <Procedure />
@@ -71,12 +68,12 @@ class ProcedureList extends Component {
           <Procedure />
           <Procedure /> */}
 
-          <LoadMore_Button_Container>
+          <LoadMoreButtonContainer>
             <Fab color="primary" aria-label="">
               <AddIcon />
             </Fab>
-          </LoadMore_Button_Container>
-        </Styled_Card>
+          </LoadMoreButtonContainer>
+        </StyledCard>
       </ProcedureListContainer>
     );
   }
@@ -85,10 +82,10 @@ class ProcedureList extends Component {
 // Map State To Props
 const mapStateToProps = state => {
   return {
-      dummyPatients: state.dummyPatients,
-      dummyProcedures: state.dummyProcedures
-  }
-}
+    dummyPatients: state.dummyPatients,
+    dummyProcedures: state.dummyProcedures
+  };
+};
 
 // Connect
 export default connect(
