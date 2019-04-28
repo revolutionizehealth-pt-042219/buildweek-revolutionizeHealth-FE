@@ -14,6 +14,9 @@ import Header from "../Header";
 import Footer from "../Footer";
 import HomepageProcedures from "./HomepageProcedures";
 
+
+import EnhancedTable from '../Homepage/TableTest_homepage'
+
 // Styled Compoennts
 import styled from "styled-components";
 
@@ -35,7 +38,13 @@ class Homepage extends Component {
           <h1>Hello from Homepage Component</h1>
           <FilterBar />
           <StyledHomepageBody>
-            <HomepageProcedures />
+
+
+            {/* <HomepageProcedures /> */}
+            <EnhancedTable />
+
+
+
             <Map />
           </StyledHomepageBody>
         </div>
