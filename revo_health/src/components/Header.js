@@ -19,7 +19,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div``;
 
-const Styled_AppBar = styled(AppBar)`
+const StyledAppBar = styled(AppBar)`
   padding: 0px;
 `;
 
@@ -37,7 +37,7 @@ class Header extends Component {
   render() {
     return (
       <HeaderContainer>
-        <Styled_AppBar className="AppBar_materialUI" position="static">
+        <StyledAppBar className="AppBar_materialUI" position="static">
           <StyledToolbar className="ToolBar_materialUI">
             <IconButton color="inherit" aria-label="Menu">
               <MenuIcon />
@@ -45,7 +45,7 @@ class Header extends Component {
 
             <HeaderTitle>USER COMPONENT TITLE</HeaderTitle>
           </StyledToolbar>
-        </Styled_AppBar>
+        </StyledAppBar>
       </HeaderContainer>
     );
   }

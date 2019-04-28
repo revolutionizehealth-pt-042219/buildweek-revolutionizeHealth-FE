@@ -10,10 +10,12 @@ import { connect } from "react-redux";
 import Procedure from "./Procedure";
 
 // MATERIAL UI
-import { 
-  Card, CardContent, 
-  // Typography, 
-  Fab } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  // Typography,
+  Fab
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 // import {} from '';
@@ -24,25 +26,25 @@ import styled from "styled-components";
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
 
-const PersonalProcedures_Container = styled.div`
+const PersonalProceduresContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   width: 67%;
 `;
 
-const PersonalProcedures_Title = styled.h2`
+const PersonalProceduresTitle = styled.h2`
   display: flex;
   justify-content: center;
 
   margin-top: 0px;
 `;
 
-const Styled_Card = styled(Card)``;
+const StyledCard = styled(Card)``;
 
-const Styled_CardContent = styled(CardContent)``;
+const StyledCardContent = styled(CardContent)``;
 
-const LoadMore_Button_Container = styled.div`
+const LoadMoreButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 
@@ -51,36 +53,34 @@ const LoadMore_Button_Container = styled.div`
 
 class PersonalProcedures extends Component {
   render() {
-    console.log(this.props)
-    console.log(this.props.procedures)
+    console.log(this.props);
+    console.log(this.props.procedures);
 
     return (
-      <PersonalProcedures_Container className="PersonalProcedures_Container">
-        <Styled_Card>
-          <Styled_CardContent>
-            <PersonalProcedures_Title>
+      <PersonalProceduresContainer className="PersonalProceduresContainer">
+        <StyledCard>
+          <StyledCardContent>
+            <PersonalProceduresTitle>
               Your Logged Procedures
-            </PersonalProcedures_Title>
+            </PersonalProceduresTitle>
 
             {/* Map and return appropraite # of Procedures */}
-            {
-              this.props.procedures.map( procedure => {
-                return <Procedure procedure={procedure}/>
-              })
-            }
-            
+            {this.props.procedures.map(procedure => {
+              return <Procedure procedure={procedure} />;
+            })}
+
             {/* <Procedure />
             <Procedure />
             <Procedure /> */}
 
-            <LoadMore_Button_Container>
+            <LoadMoreButtonContainer>
               <Fab color="primary" aria-label="">
                 <AddIcon />
               </Fab>
-            </LoadMore_Button_Container>
-          </Styled_CardContent>
-        </Styled_Card>
-      </PersonalProcedures_Container>
+            </LoadMoreButtonContainer>
+          </StyledCardContent>
+        </StyledCard>
+      </PersonalProceduresContainer>
     );
   }
 }

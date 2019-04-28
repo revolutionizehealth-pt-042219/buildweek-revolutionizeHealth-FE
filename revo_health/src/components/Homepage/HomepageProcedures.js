@@ -31,13 +31,13 @@ import styled from "styled-components";
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
 
-const Styled_Card = styled(Card)`
+const StyledCard = styled(Card)`
   display: flex;
 
   margin-bottom: 20px;
 `;
 
-const Styled_CardContent = styled(CardContent)`
+const StyledCardContent = styled(CardContent)`
   position: relative;
 
   display: flex;
@@ -58,13 +58,13 @@ const IntoTitle = styled.h3`
   margin-right: 15px;
 `;
 
-const ProcedureContent_left = styled.div`
+const ProcedureContentleft = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-const ProcedureContent_right = styled.div`
+const ProcedureContentright = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -129,9 +129,9 @@ class HomepageProcedures extends Component {
 
     return (
       <>
-        <Styled_Card>
-          <Styled_CardContent className="styled_CardContent">
-            {/* <ProcedureContent_left>
+        <StyledCard>
+          <StyledCardContent className="styled_CardContent">
+            {/* <ProcedureContentleft>
               <InfoSection className="infoSection">
                 <IntoTitle>pro:</IntoTitle>
                 <Chip label={this.props.dummyProcedures.procedure_name} />
@@ -145,8 +145,8 @@ class HomepageProcedures extends Component {
                 <IntoTitle>At:</IntoTitle>
                 <Chip label={this.props.dummyProcedures.hosptial_name} />
               </InfoSection>
-            </ProcedureContent_left> */}
-            <ProcedureContent_right>
+            </ProcedureContentleft> */}
+            <ProcedureContentright>
               <Table>
                 <TableHead>
                   <TableRow>
@@ -182,15 +182,15 @@ class HomepageProcedures extends Component {
                   ))}
                 </TableBody>
               </Table>
-            </ProcedureContent_right>
+            </ProcedureContentright>
 
             <ProcedureActions>
               {/* <Button size="small" variant="outlined" color="secondary">
                 EDIT PROCEDURE
               </Button> */}
             </ProcedureActions>
-          </Styled_CardContent>
-        </Styled_Card>
+          </StyledCardContent>
+        </StyledCard>
       </>
     );
   }

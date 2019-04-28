@@ -33,7 +33,7 @@ const ProcedureListContainer = styled.div`
   width: 67%;
 `;
 
-const Styled_Card = styled(Card)``;
+const StyledCard = styled(Card)``;
 
 const ProceduresTitle = styled.h2`
   display: flex;
@@ -42,7 +42,7 @@ const ProceduresTitle = styled.h2`
   margin-top: 0px;
 `;
 
-const LoadMore_Button_Container = styled.div`
+const LoadMoreButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 
@@ -55,7 +55,7 @@ class ProcedureList extends Component {
 
     return (
       <ProcedureListContainer>
-        <Styled_Card>
+        <StyledCard>
           <ProceduresTitle>Procedures Title</ProceduresTitle>
 
           {this.props.dummyProcedures.map(procedure => {
@@ -68,12 +68,12 @@ class ProcedureList extends Component {
           <Procedure />
           <Procedure /> */}
 
-          <LoadMore_Button_Container>
+          <LoadMoreButtonContainer>
             <Fab color="primary" aria-label="">
               <AddIcon />
             </Fab>
-          </LoadMore_Button_Container>
-        </Styled_Card>
+          </LoadMoreButtonContainer>
+        </StyledCard>
       </ProcedureListContainer>
     );
   }

@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 // MATERIAL UI
 
-
 import {
   Avatar,
   Button,
@@ -14,21 +13,15 @@ import {
   Input,
   InputLabel,
   Paper,
-  Typography,
-} from '@material-ui/core'
+  Typography
+} from "@material-ui/core";
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-
-
-
-
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 // // STYLED COMPONENTS
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
-
-
 `;
 
 const Styled_Avatar = styled(Avatar)`
@@ -36,17 +29,16 @@ const Styled_Avatar = styled(Avatar)`
   justify-content: center;
 `;
 
-const Styled_Paper = styled(Paper)`
-  
+const StyledPaper = styled(Paper)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   margin-top: 30px;
   padding: 20px;
 `;
 
-const Styled_Button = styled(Button)`
+const StyledButton = styled(Button)`
   margin-top: 30px;
 `;
 
@@ -70,7 +62,7 @@ class Login extends Component {
   // Submitting the form will set a "User" in local storage. within 'withAuthenticate'
   // it checks to see if it's present, and if so, you're considered logged in.
   handleLoginSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     const user = this.state.username;
     localStorage.setItem("user", user);
     // window.location.reload();
@@ -78,9 +70,8 @@ class Login extends Component {
 
   render() {
     return (
-      <LoginContainer className='loginContainer'>
-        <Styled_Paper className='paperWrapper'>
-          
+      <LoginContainer className="loginContainer">
+        <StyledPaper className="paperWrapper">
           <Avatar>
             <LockOutlinedIcon />
           </Avatar>
@@ -91,35 +82,27 @@ class Login extends Component {
 
           <form>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel>
-                UserName
-              </InputLabel>
+              <InputLabel>UserName</InputLabel>
               <Input name="username" />
             </FormControl>
 
             <FormControl margin="normal" required fullWidth>
-              <InputLabel>
-                Password
-              </InputLabel>
-              <Input name="password" type="password"/>
+              <InputLabel>Password</InputLabel>
+              <Input name="password" type="password" />
             </FormControl>
 
-            <Styled_Button
-              className='signIn_Button'
+            <StyledButton
+              className="signIn_Button"
               onClick={this.handleLoginSubmit}
-
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
-            
             >
               Log in
-            </Styled_Button>
+            </StyledButton>
           </form>
-
-        </Styled_Paper>
-
+        </StyledPaper>
       </LoginContainer>
     );
   }

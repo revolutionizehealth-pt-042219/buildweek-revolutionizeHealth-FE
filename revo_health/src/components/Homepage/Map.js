@@ -35,6 +35,7 @@ class Map extends Component {
           }
           height={400}
           width={400}
+          title="title"
         />
       </MapContainer>
     );
