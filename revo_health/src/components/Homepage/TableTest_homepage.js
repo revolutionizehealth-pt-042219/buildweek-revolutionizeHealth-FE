@@ -16,6 +16,8 @@ import React from "react";
     import Typography from "@material-ui/core/Typography";
     import Paper from "@material-ui/core/Paper";
     import Tooltip from "@material-ui/core/Tooltip";
+    import Chip from '@material-ui/core/Chip';
+    
     
     // STYLED ... will need
     import { withStyles } from "@material-ui/core/styles";
@@ -158,7 +160,7 @@ function getSorting(order, orderBy) {
             numeric: true, 
             // disablePadding: true, 
             label: "Insurance Payment" },
-            
+
         {   id: "ins_adjustment", 
             numeric: true, 
             // disablePadding: true, 
@@ -319,6 +321,19 @@ class EnhancedTable extends React.Component {
             this.setState({ order, orderBy });
         };
 
+    // CHIP FILTER
+        // chipFilter = () => {
+        //     console.log(this)
+        //     console.log(this.props)
+        //     console.log(this.props.label)
+            
+        // }
+
+        chipFilter = (item) => {
+            console.log(this)
+            console.log(item)
+            console.log(item.label)
+       }
 
     // OTHER methods
         handleChangePage = (event, page) => {
@@ -328,6 +343,8 @@ class EnhancedTable extends React.Component {
         handleChangeRowsPerPage = event => {
             this.setState({ rowsPerPage: event.target.value });
         };
+
+    
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // END Table Methods
@@ -396,33 +413,64 @@ class EnhancedTable extends React.Component {
                                             
                                             <TableCell 
                                                 component="th" 
+                                                align="center"
                                                 scope="row" 
                                                 // padding="none"
+
                                             >
-												{n.procedure}
+                                                <Chip 
+                                                    label={n.procedure} 
+                                                    variant="outlined" 
+                                                    color="primary"
+
+                                                    clickable={true}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.procedure) }
+
+                                                />
 											</TableCell>
 
                                             <TableCell align="center">
-                                                {n.doctor}
+                                                <Chip 
+                                                    label={n.doctor} 
+                                                    variant="outlined" 
+                                                    color="primary"
+
+                                                    clickable={true}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.doctor) }
+                                                />
                                             </TableCell>
 
                                             <TableCell align="center">
-                                                {n.hospital}
+                                                <Chip 
+                                                    label={n.hospital} 
+                                                    variant="outlined" 
+                                                    color="primary"
+
+                                                    clickable={true}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.hospital) }
+                                                />
                                             </TableCell>
 
-											<TableCell align="center">
+                                            <TableCell 
+                                                align="center">
                                                 ${n.procedureCost}
                                             </TableCell>
 
-											<TableCell align="center">
+                                            <TableCell 
+                                                align="center">
                                                 ${n.outOfPocket_PMT}
                                             </TableCell>
 
-											<TableCell align="center">
+                                            <TableCell 
+                                                align="center">
                                                 ${n.ins_PMT}
                                             </TableCell>
                                             
-											<TableCell align="center">
+                                            <TableCell 
+                                                align="center">
                                                 ${n.ins_adjustment}
                                             </TableCell>
 
