@@ -182,9 +182,10 @@ class EnhancedTableHead extends React.Component {
         console.log('TABLE HEAD -> CreateSortHandler -> PROPERTY: ', property)
 
 
-		this.props.onRequestSort(event, property);
-	};
-
+        this.props.onRequestSort(event, property);
+        
+    };
+    
 	render() {
 		const {
 			
@@ -192,7 +193,6 @@ class EnhancedTableHead extends React.Component {
                 order,
                 orderBy,
 
-			
 			rowCount
 		} = this.props;
 
@@ -209,25 +209,41 @@ class EnhancedTableHead extends React.Component {
                                 // padding={row.disablePadding ? "none" : "default"}
                                 padding='none' // remove disablePadding from rows
 
-								sortDirection={orderBy === row.id ? order : false}
+                                sortDirection={orderBy === row.id ? order : false}
+                                
+                                
 							>
-                                {/* Tooltips display informative text when users hover over, focus on, or tap an element. */}
-								<Tooltip
-                                    title="Sort"
-                                    placement='bottom'
-									enterDelay={300}
-								>
-                                    {/* THIS IS WHERE THE SORTING 
-                                    STARTS WITH ONCLICK */}
 
-									<TableSortLabel
-										active={orderBy === row.id}
-										direction={order}
-										onClick={this.createSortHandler(row.id)}
-									>
-										{row.label}
-									</TableSortLabel>
-								</Tooltip>
+                                {this.props.filteredData_bool && this.props.filterBy === row.id ? (
+                                    
+                                        <Tooltip title="Delete">
+                                            <IconButton 
+                                                aria-label="Delete"
+                                                onClick={this.props.removeFilter}
+                                            >
+                                                Remove Filter
+                                                <DeleteIcon />
+                                            </IconButton>
+                                        </Tooltip>
+                                        
+
+                                ) : (
+
+                                    // <Tooltip
+                                    //     title="Sort"
+                                    //     placement='bottom'
+                                    //     enterDelay={300}
+                                    // >
+                                        <TableSortLabel
+                                            active={orderBy === row.id}
+                                            direction={order}
+                                            onClick={this.createSortHandler(row.id)}
+                                        >
+                                            {row.label}
+                                        </TableSortLabel>
+                                    // </Tooltip>
+
+                                )}
 							</TableCell>
 						),
 						this
@@ -258,18 +274,78 @@ class EnhancedTable extends React.Component {
         // add data from props in Component Did Mount
         data: [],
 
+        filteredData: false,
+        filterBy: undefined,
+
 		page: 0,
-		rowsPerPage: 4
+		rowsPerPage: 5
 	};
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+// -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // Table Methods
 // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+// -- ** -- ** -- ** -- ** -- ** -- ** -- //
 
-    // Add data to this.state.data in Component Did Mount
-    componentDidMount() {
-        console.log('INSIDE OF COMPONENT DID MOUNT')
-        let fillData = []
+
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
+    // Sorting Function --> Table Head
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+
+        handleRequestSort = (event, property) => {
+            console.log('TABLE METHOD -> handleRequestSort - EVENT: ',event)
+            console.log('TABLE METHOD -> handleRequestSort - PROPERTY: ',property)
+            
+            // set 'orderBy' to the name of the column you just selected (property)
+                const orderBy = property;
+            
+            // logic to flip 'asc' & 'desc'
+                let order = "desc";
+                if (
+                    this.state.orderBy === property 
+                    && 
+                    this.state.order === "desc"
+                ) {
+                    order = "asc";
+                }
+
+            // set new state
+                this.setState({ order, orderBy });
+        };
+
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
+    // Remove Filter ACTION --> This is a METHOD that is passed into the table head PROPS
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+
+        removeFilter = () => {
+            console.log('clicked to REMOVE filter')
+            
+            this.setState(prevState => ({
+                ...prevState,
+                filteredData: false,
+                filterBy: undefined,
+            }))
+            
+            this.setState_w_dummyData()
+
+
+
+
+        }
+
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
+    // Component Did Mount --> Load Initial Data Onto State
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+
+        componentDidMount() {
+            console.log('INSIDE OF COMPONENT DID MOUNT')
+            this.setState_w_dummyData()
+        }
+
+        setState_w_dummyData = () => {
+            console.log('INSIDE setState_w_dummyData')
+
+            let fillData = []
             for (let i = 0; i < this.props.dummyProcedures.length; i++) {
 
                 let dataToPush = createData(
@@ -285,59 +361,71 @@ class EnhancedTable extends React.Component {
                 // console.log(dataToPush)
                 fillData.push(dataToPush)
             }
-        console.log('prepared data for tableState', fillData)
-        console.log('state PRE setState', this.state)
 
-        this.setState(prevState => ({
-            ...prevState,
-            data: fillData
-        }))
+            console.log('prepared data for tableState', fillData)
+            console.log('state PRE setState', this.state)
 
-        // it WORKES if you look in the REACT DEV TOOLS but the log below will show NOTHING
-        console.log('state POST setState', this.state.data)
-    }
-    // console.log("prepared data for tableState", fillData);
+            this.setState(prevState => ({
+                ...prevState,
+                data: fillData
+            }))
 
-    // console.log("state PRE setState", this.state);
+            // it WORKES if you look in the REACT DEV TOOLS but the log below will show NOTHING
+            console.log('state POST setState', this.state.data)
+        }
 
-    // SORTING FUNCTION -- Table Head
-    // THIS IS THE ONLY TABLE METHOD THAT INTERACTS WITH THE TABLE HEAD METHODS
-        handleRequestSort = (event, property) => {
-            
-            console.log('TABLE METHOD -> handleRequestSort - EVENT: ',event)
-            console.log('TABLE METHOD -> handleRequestSort - PROPERTY: ',property)
-            
-            // set 'orderBy' to the name of the column you just selected (property)
-            const orderBy = property;
-            
-            // logic to flip 'asc' & 'desc'
-            let order = "desc";
-            if (
-                this.state.orderBy === property 
-                && 
-                this.state.order === "desc"
-            ) {
-                order = "asc";
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
+    // onClick Chip Filtering
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //
+
+        // -1- // Procedure Chip Filter onClick Handler
+            procedure_chipFilter = (item) => {
+                let columnToFilter = 'procedure'
+                this.filterStateData(columnToFilter, item)
             }
 
-            this.setState({ order, orderBy });
-        };
+        // -2- // Doctor Chip Filter onClick Handler
+            doctor_chipFilter = (item) => {
+                let columnToFilter = 'doctor'
+                this.filterStateData(columnToFilter, item)
+            }
 
-    // CHIP FILTER
-        // chipFilter = () => {
-        //     console.log(this)
-        //     console.log(this.props)
-        //     console.log(this.props.label)
             
-        // }
+        // -3- // Hospital Chip Filter onClick Handler
+            hospital_chipFilter = (item) => {
+                let columnToFilter = 'hospital'
+                this.filterStateData(columnToFilter, item)
+            }
+            
+        // -FILTER- // 
+            filterStateData = (column, item) => {
+                console.log(this.state.data)
+                console.log(column, item)
 
-        chipFilter = (item) => {
-            console.log(this)
-            console.log(item)
-            console.log(item.label)
-       }
+                let newStateData = []
+                if (column === 'procedure') {
+                    newStateData = this.state.data.filter( dataPoint => dataPoint.procedure ===  item)
+                } else if (column === 'doctor') {
+                    newStateData = this.state.data.filter( dataPoint => dataPoint.doctor ===  item)
+                } else if ( column === 'hospital') {
+                    newStateData = this.state.data.filter( dataPoint => dataPoint.hospital ===  item)
+                } else {
+                    alert('You made an error. Column not identified')
+                }
+                console.log('Filtered State Data', newStateData)
 
-    // OTHER methods
+            // set new state
+                this.setState(prevState => ({
+                    ...prevState,
+                    data: newStateData,
+                    filteredData: true,
+                    filterBy: column 
+                }))
+
+            }
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
+    // Pagination
+    // -- ** -- ** -- ** -- ** -- ** -- ** -- //  
         handleChangePage = (event, page) => {
             this.setState({ page });
         };
@@ -381,6 +469,12 @@ class EnhancedTable extends React.Component {
                                     order={order}
                                     orderBy={orderBy}
                                     onRequestSort={this.handleRequestSort}
+
+                                    filteredData_bool={this.state.filteredData}
+                                    filterBy={this.state.filterBy}
+                                    removeFilter={this.removeFilter}
+                                        
+                                        
 
 
                                 rowCount={data.length}
@@ -427,7 +521,7 @@ class EnhancedTable extends React.Component {
 
                                                     clickable={true}
                                                     // onClick={this.chipFilter}
-                                                    onClick={ () => this.chipFilter(n.procedure) }
+                                                    onClick={ () => this.procedure_chipFilter(n.procedure) }
 
                                                 />
 											</TableCell>
@@ -440,7 +534,7 @@ class EnhancedTable extends React.Component {
 
                                                     clickable={true}
                                                     // onClick={this.chipFilter}
-                                                    onClick={ () => this.chipFilter(n.doctor) }
+                                                    onClick={ () => this.doctor_chipFilter(n.doctor) }
                                                 />
                                             </TableCell>
 
@@ -452,7 +546,7 @@ class EnhancedTable extends React.Component {
 
                                                     clickable={true}
                                                     // onClick={this.chipFilter}
-                                                    onClick={ () => this.chipFilter(n.hospital) }
+                                                    onClick={ () => this.hospital_chipFilter(n.hospital) }
                                                 />
                                             </TableCell>
 
