@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 // COMPONENTS
 // Test Component
 // import TESTcomponent from "./components/ActionCreator_TEST";
-import EnhancedTable from "./components/Homepage/TableTest_homepage";
+// import EnhancedTable from "./components/Homepage/TableTest_homepage";
 
 // Login & Authentication
 import LoginPage from "./components/Login";
@@ -27,7 +27,6 @@ function App() {
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/user" component={UserComponent} />
 
-      {/* <Route extat path="/testTable" component={EnhancedTable} /> */}
     </div>
   );
 }

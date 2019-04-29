@@ -7,15 +7,12 @@ import { connect } from "react-redux";
 // IMPORT ACTION CREATORS
 
 // COMPONENT
-import FilterBar from "./FilterBar";
-import ProcedureList from "./ProcedureList";
 import Map from "./Map";
 import Header from "../Header";
 import Footer from "../Footer";
-import HomepageProcedures from "./HomepageProcedures";
 
 
-import EnhancedTable from '../Homepage/TableTest_homepage'
+import HomepageTable from './HomepageTable'
 
 // Styled Compoennts
 import styled from "styled-components";
@@ -36,16 +33,11 @@ class Homepage extends Component {
         <Header />
         <div className="homepage-container">
           <h1>Hello from Homepage Component</h1>
-          <FilterBar />
           <StyledHomepageBody>
 
-
-            {/* <HomepageProcedures /> */}
-            <EnhancedTable />
-
-
-
+            <HomepageTable />
             <Map />
+
           </StyledHomepageBody>
         </div>
         <Footer />
