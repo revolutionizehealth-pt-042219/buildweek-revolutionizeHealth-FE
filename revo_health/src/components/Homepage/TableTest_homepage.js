@@ -322,12 +322,18 @@ class EnhancedTable extends React.Component {
         };
 
     // CHIP FILTER
-        chipFilter = () => {
-            console.log(this)
-            console.log(this.props)
-            console.log(this.props.label)
+        // chipFilter = () => {
+        //     console.log(this)
+        //     console.log(this.props)
+        //     console.log(this.props.label)
             
-        }
+        // }
+
+        chipFilter = (item) => {
+            console.log(this)
+            console.log(item)
+            console.log(item.label)
+       }
 
     // OTHER methods
         handleChangePage = (event, page) => {
@@ -418,7 +424,9 @@ class EnhancedTable extends React.Component {
                                                     color="primary"
 
                                                     clickable={true}
-                                                    onClick={this.chipFilter}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.procedure) }
+
                                                 />
 											</TableCell>
 
@@ -429,7 +437,8 @@ class EnhancedTable extends React.Component {
                                                     color="primary"
 
                                                     clickable={true}
-                                                    onClick={this.chipFilter}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.doctor) }
                                                 />
                                             </TableCell>
 
@@ -440,7 +449,8 @@ class EnhancedTable extends React.Component {
                                                     color="primary"
 
                                                     clickable={true}
-                                                    onClick={this.chipFilter}
+                                                    // onClick={this.chipFilter}
+                                                    onClick={ () => this.chipFilter(n.hospital) }
                                                 />
                                             </TableCell>
 
