@@ -2,7 +2,7 @@
 import React from "react";
 
 // REDUX
-    import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 // MATERIAL UI
     import Table from "@material-ui/core/Table";
@@ -372,7 +372,6 @@ class EnhancedTable extends React.Component {
 
             // it WORKES if you look in the REACT DEV TOOLS but the log below will show NOTHING
             console.log('state POST setState', this.state.data)
-
         }
 
     // -- ** -- ** -- ** -- ** -- ** -- ** -- //    
@@ -598,13 +597,63 @@ class EnhancedTable extends React.Component {
 	}
 }
 
+                      {console.log(n)}
+
+                      <TableCell component="th" scope="row" padding="none">
+                        {n.procedure}
+                      </TableCell>
+
+                      <TableCell align="center">{n.doctor}</TableCell>
+
+                      <TableCell align="center">{n.hospital}</TableCell>
+
+                      <TableCell align="center">${n.procedureCost}</TableCell>
+
+                      <TableCell align="center">${n.outOfPocket_PMT}</TableCell>
+
+                      <TableCell align="center">${n.ins_PMT}</TableCell>
+
+                      <TableCell align="center">${n.ins_adjustment}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 49 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={data.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          backIconButtonProps={{
+            "aria-label": "Previous Page"
+          }}
+          nextIconButtonProps={{
+            "aria-label": "Next Page"
+          }}
+          onChangePage={this.handleChangePage}
+          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+        />
+      </Paper>
+    );
+  }
+}
 
 // Map State To Props
 const mapStateToProps = state => {
-    return {
-        dummyPatients: state.dummyPatients,
-        dummyProcedures: state.dummyProcedures
-    };
+  return {
+    dummyPatients: state.dummyPatients,
+    dummyProcedures: state.dummyProcedures
+  };
 };
 
-export default connect(mapStateToProps, {})(EnhancedTable);
+export default connect(
+  mapStateToProps,
+  {}
+)(EnhancedTable);

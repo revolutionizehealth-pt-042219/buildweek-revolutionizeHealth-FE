@@ -18,10 +18,37 @@ import {
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
-// // STYLED COMPONENTS
+// Assets
+import logo from "../assets/RevLogo.svg";
+
+// STYLED COMPONENTS
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right top,
+    #264075,
+    #526695,
+    #7e8fb5,
+    #abbad6,
+    #dce6f7
+  );
+  height: 98vh;
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  background-color: #264075;
+  border-radius: 2%;
+  margin-bottom: 10px;
+`;
+
+const AppLogo = styled.img`
+  height: 20vh;
 `;
 
 const Styled_Avatar = styled(Avatar)`
@@ -32,6 +59,7 @@ const Styled_Avatar = styled(Avatar)`
 const StyledPaper = styled(Paper)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   margin-top: 30px;
@@ -72,6 +100,9 @@ class Login extends Component {
     return (
       <LoginContainer className="loginContainer">
         <StyledPaper className="paperWrapper">
+          <LogoWrapper>
+            <AppLogo src={logo} alt="" />
+          </LogoWrapper>
           <Avatar>
             <LockOutlinedIcon />
           </Avatar>
