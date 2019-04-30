@@ -19,11 +19,49 @@ import RegisterUser from "./components/RegisterUser";
 // CSS
 import "./App.css";
 
+// function App() {
+//   return (
+//     <div className="App">
+
+
+//       <Route exact path="/" component={Homepage} />
+//       <Route exact path="/login" component={LoginPage} />
+//       <Route exact path="/user" component={UserComponent} />
+      
+//       <Route exact path="/register" component={RegisterUser} />
+
+
+//     </div>
+//   );
+// }
+// export default App;
+
+
+// APP AFTER AUTHENTICATION
 function App() {
   return (
     <div className="App">
-      {/* <TESTcomponent /> */}
+        <h2>Hello from App</h2>
 
+        <ComponentWithAuthenticate />
+      </div>
+    );
+  }
+  
+  const ComponentWithAuthenticate = withAuthenticate(App)(LoginPage);
+  
+  export default App;
+  
+  
+  
+
+
+
+
+
+
+
+<<<<<<< HEAD
       <Route exact path="/" component={Homepage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/user" component={UserComponent} />
@@ -32,8 +70,11 @@ function App() {
     </div>
   );
 }
+=======
 
-export default App;
+
+>>>>>>> 20d3f1059bd727b7f7b4a8671b9d90e3379191fa
+
 
 /*APP AFTER AUTHENTICATION
   function App() {
@@ -46,7 +87,7 @@ export default App;
     );
   }
 
-  const ComponentWithAuthenticate = withAuthenticate(TESTcomponent)(LoginPage);
+  const ComponentWithAuthenticate = withAuthenticate(App)(LoginPage);
 
   export default App;
 */
