@@ -19,7 +19,7 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 // Assets
-import logo from "../assets/RevLogo.svg";
+import logo from "../assets/RevLogo2.svg";
 
 // STYLED COMPONENTS
 const LoginContainer = styled.div`
