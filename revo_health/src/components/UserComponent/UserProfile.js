@@ -4,6 +4,9 @@ import React, { Component } from "react";
 // REDUX
 import { connect } from "react-redux";
 
+// Colors
+import colors from '../../styles/colorVariables'
+
 // MATERIAL UI
 import {
   Card,
@@ -12,9 +15,11 @@ import {
   Avatar
 } from "@material-ui/core";
 
-// import {} from '';
+import compose from 'recompose/compose';
+import { withStyles } from '@material-ui/styles'
 
 // IMPORT ACTION CREATORS
+
 
 // Styled Components
 import styled from "styled-components";
@@ -42,6 +47,13 @@ const ProfileInfo = styled.div`
   align-items: center;
 `;
 
+// Material UI Styling
+const styles = theme => ({
+  userProfile_Card: {
+    backgroundColor: colors.userProfileCard_background
+  }
+})
+
 class UserProfile extends Component {
   render() {
     console.log(this.props);
@@ -49,8 +61,13 @@ class UserProfile extends Component {
     //WHAT USER??
     const UserIndex = 2;
 
+    const { classes } = this.props
+
     return (
-      <StyledCard className="userProfile">
+      <StyledCard 
+        // className="userProfile"
+        className={ classes.userProfile_Card}
+      >
         <StyledCardContent>
           <Avatar alt="User#" src="" className="avatarIMG" />
           <ProfileInfo>
@@ -79,7 +96,12 @@ class UserProfile extends Component {
 // Map State To Props
 
 // Connect
-export default connect(
-  null,
-  {}
-)(UserProfile);
+// export default connect(
+//   null,
+//   {}
+// )(UserProfile);
+
+export default compose(
+  withStyles(styles),
+  connect(null, {})
+)(UserProfile)

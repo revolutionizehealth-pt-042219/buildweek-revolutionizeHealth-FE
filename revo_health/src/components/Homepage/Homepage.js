@@ -11,8 +11,14 @@ import Map from "./Map";
 import Header from "../Header";
 import Footer from "../Footer";
 
-
 import HomepageTable from './HomepageTable'
+
+// Colors
+import colors from '../../styles/colorVariables'
+
+// MATERIAL UI
+import compose from 'recompose/compose';
+import { withStyles } from '@material-ui/styles'
 
 // Styled Compoennts
 import styled from "styled-components";
@@ -26,12 +32,23 @@ const StyledHomepageBody = styled.div`
   align-items: center;
 `;
 
+// Material UI Styling
+const styles = theme => ({
+  homepage: {
+    backgroundColor: colors.homepageBackground
+  }
+})
 class Homepage extends Component {
-  render() {
+  render() {  
+    const { classes } = this.props
+
     return (
       <>
         <Header />
-        <div className="homepage-container">
+        <div 
+          // className="homepage-container"
+          className={classes.homepage}
+        >
           <h1>Hello from Homepage Component</h1>
           <StyledHomepageBody>
 
@@ -46,7 +63,12 @@ class Homepage extends Component {
   }
 }
 
-export default connect(
-  null,
-  {}
-)(Homepage);
+// export default connect(
+//   null,
+//   {}
+// )(Homepage);
+
+export default compose(
+  withStyles(styles),
+  connect(null, {})
+)(Homepage)

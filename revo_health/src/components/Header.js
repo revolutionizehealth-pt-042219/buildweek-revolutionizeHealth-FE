@@ -67,7 +67,7 @@ class Header extends Component {
                 <MenuIcon />
               </IconButton>
 
-              <HeaderTitle>USER COMPONENT TITLE</HeaderTitle>
+              {/* <HeaderTitle>USER COMPONENT TITLE</HeaderTitle> */}
             </StyledToolbar>
           </StyledAppBar>
         </HeaderContainer>
@@ -85,6 +85,6 @@ class Header extends Component {
 // )(Header)
 
 export default compose(
-  withStyles(styles, { name: 'Header' } ),
+  withStyles(styles),
   connect(null, {})
 )(Header)

@@ -129,6 +129,6 @@ class Footer extends Component {
 // )(Footer);
 
 export default compose(
-  withStyles(styles, { name: 'Footer' } ),
+  withStyles(styles),
   connect(null, {})
 )(Footer)
