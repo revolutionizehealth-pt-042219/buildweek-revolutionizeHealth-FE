@@ -42,7 +42,6 @@ const StyledToolbar = styled(Toolbar)`
 
   display: flex;
   justify-content: space-around;
-
 `;
 
 const FooterTitle = styled.div``;
@@ -57,8 +56,7 @@ const FooterContentContainer = styled.div`
 const FooterContent = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-
+  flex-grow: 0;
   }
 
   .legalStatement_terms_and_conditions {
@@ -67,10 +65,6 @@ const FooterContent = styled.div`
     margin-bottom: 20px;
   }
 `;
-
-
-
-
 
 class Footer extends Component {
   render() {
@@ -81,23 +75,15 @@ class Footer extends Component {
             <FooterTitle>FOOTER COMPONENT TITLE</FooterTitle>
             <FooterContentContainer>
               <FooterContent className="footerContent_1">
-                
-
-                <div className='UI_links'>
-                  <div>
-                    UI: Design Link 1
-                  </div>
-                  <div>
-                    UI: Design Link 1
-                  </div>
+                <div className="UI_links">
+                  <div>UI: Design Link 1</div>
+                  <div>UI: Design Link 1</div>
                 </div>
 
-
-                <div className='legalStatement_terms_and_conditions'>
-                  Any use of this site constitutes your agreement to the Terms and Conditions and Privacy Policy linked below.
+                <div className="legalStatement_terms_and_conditions">
+                  Any use of this site constitutes your agreement to the Terms
+                  and Conditions and Privacy Policy linked below.
                 </div>
-                
-                
               </FooterContent>
               <FooterContent className="footerContent_2">
                 Footer Content Middle
