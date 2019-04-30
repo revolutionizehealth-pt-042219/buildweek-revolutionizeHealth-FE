@@ -16,7 +16,6 @@ import UserComponent from "./components/UserComponent/UserComponent";
 import Homepage from "./components/Homepage/Homepage";
 import RegisterUser from "./components/RegisterUser";
 
-
 // CSS
 import "./App.css";
 
@@ -28,13 +27,8 @@ function App() {
       <Route exact path="/" component={Homepage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/user" component={UserComponent} />
-<<<<<<< HEAD
-=======
-      
+
       <Route exact path="/register" component={RegisterUser} />
-
-
->>>>>>> 393fb3e0bb147d1da282a00a75a569b9f5f7c4ef
     </div>
   );
 }

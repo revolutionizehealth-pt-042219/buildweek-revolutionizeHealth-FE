@@ -98,14 +98,14 @@ class Login extends Component {
   };
 
   handleRegister = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log(this)
-    console.log(this.props)
-    console.log(this.props.history)
+    console.log(this);
+    console.log(this.props);
+    console.log(this.props.history);
 
-    this.props.history.push('/register')
-  }
+    this.props.history.push("/register");
+  };
 
   render() {
     return (
