@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 
 // REDUX
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 // Styled Components
 import styled from "styled-components";
 
 // IMPORT ACTION CREATOR
-  import { login } from '../actions/a_login'
+import { login } from "../actions/a_login";
 
 // MATERIAL UI
 
@@ -79,7 +79,7 @@ const StyledButton = styled(Button)`
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
 
-class Login extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,13 +97,12 @@ class Login extends Component {
   // it checks to see if it's present, and if so, you're considered logged in.
 
   handleLoginSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
-    const user = this.state.username;
-    localStorage.setItem("username", user);
+    localStorage.setItem("username", this.state.username);
+    localStorage.setItem("password", this.state.password);
 
-
-    this.props.login(this.state)
+    this.props.login(this.state);
 
     // window.location.reload();
   };
@@ -141,7 +140,11 @@ class Login extends Component {
 
             <FormControl margin="normal" required fullWidth>
               <InputLabel>Password</InputLabel>
-              <Input onChange={this.handleInputChange} name="password" type="password" />
+              <Input
+                onChange={this.handleInputChange}
+                name="password"
+                type="password"
+              />
             </FormControl>
 
             <StyledButton
@@ -154,6 +157,9 @@ class Login extends Component {
             >
               Log in
             </StyledButton>
+            <button onClick={this.handleLoginSubmit} className="login-button">
+              Log In button
+            </button>
             <StyledButton
               className="register"
               onClick={this.handleRegister}
@@ -171,7 +177,8 @@ class Login extends Component {
   }
 }
 
-
 // Connect
-  export default connect(null, {login})(Login)
-
+export default connect(
+  null,
+  { login }
+)(LoginPage);

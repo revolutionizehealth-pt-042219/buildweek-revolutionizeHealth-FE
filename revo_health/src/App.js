@@ -10,6 +10,7 @@ import { Route } from "react-router-dom";
 // Login & Authentication
 import LoginPage from "./components/Login";
 import withAuthenticate from "./authentication/withAuthenticate";
+import AppLoggedIn from "./components/AppLoggedIn";
 
 // Standard Components
 import UserComponent from "./components/UserComponent/UserComponent";
@@ -23,58 +24,31 @@ import "./App.css";
 //   return (
 //     <div className="App">
 
-
 //       <Route exact path="/" component={Homepage} />
 //       <Route exact path="/login" component={LoginPage} />
 //       <Route exact path="/user" component={UserComponent} />
-      
-//       <Route exact path="/register" component={RegisterUser} />
 
+//       <Route exact path="/register" component={RegisterUser} />
 
 //     </div>
 //   );
 // }
 // export default App;
 
-
 // APP AFTER AUTHENTICATION
 function App() {
   return (
     <div className="App">
-        <h2>Hello from App</h2>
+      <h2>Hello from App</h2>
 
-        <ComponentWithAuthenticate />
-      </div>
-    );
-  }
-  
-  const ComponentWithAuthenticate = withAuthenticate(App)(LoginPage);
-  
-  export default App;
-  
-  
-  
-
-
-
-
-
-
-
-<<<<<<< HEAD
-      <Route exact path="/" component={Homepage} />
-      <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/user" component={UserComponent} />
-
-      <Route exact path="/register" component={RegisterUser} />
+      <ComponentWithAuthenticate />
     </div>
   );
 }
-=======
 
+const ComponentWithAuthenticate = withAuthenticate(AppLoggedIn)(LoginPage);
 
->>>>>>> 20d3f1059bd727b7f7b4a8671b9d90e3379191fa
-
+export default App;
 
 /*APP AFTER AUTHENTICATION
   function App() {

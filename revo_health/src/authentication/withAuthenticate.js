@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const withAuthenticate = App => LoginPage =>
+const withAuthenticate = AppLoggedIn => LoginPage =>
   class extends Component {
     constructor(props) {
       super(props);
@@ -12,7 +12,7 @@ const withAuthenticate = App => LoginPage =>
     // Checks if user is logged in based on LocalStorage and sets it's state.
     // This is applied in the Login.js file
     componentDidMount() {
-      if (!localStorage.getItem("user")) {
+      if (!localStorage.getItem("username")) {
         this.setState({ loggedIn: false });
       } else {
         this.setState({ loggedIn: true });
@@ -28,7 +28,7 @@ const withAuthenticate = App => LoginPage =>
     */
 
     render() {
-      if (this.state.loggedIn) return <App />;
+      if (this.state.loggedIn) return <AppLoggedIn />;
       return <LoginPage />;
     }
   };
