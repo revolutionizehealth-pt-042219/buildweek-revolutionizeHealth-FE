@@ -23,7 +23,7 @@
 
         // Start Axios Call
             axios
-                .get('https://buildweek-revo-health-be.herokuapp.com/api/users/register')
+                .post('https://buildweek-revo-health-be.herokuapp.com/api/users/register', newUser)
                 .then( res => {
                     console.log( res )
 
