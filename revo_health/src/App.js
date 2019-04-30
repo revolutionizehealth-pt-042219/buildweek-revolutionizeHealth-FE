@@ -14,6 +14,8 @@ import withAuthenticate from "./authentication/withAuthenticate";
 // Standard Components
 import UserComponent from "./components/UserComponent/UserComponent";
 import Homepage from "./components/Homepage/Homepage";
+import RegisterUser from "./components/RegisterUser";
+
 
 // CSS
 import "./App.css";
@@ -26,6 +28,9 @@ function App() {
       <Route exact path="/" component={Homepage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/user" component={UserComponent} />
+      
+      <Route exact path="/register" component={RegisterUser} />
+
 
     </div>
   );
