@@ -17,7 +17,7 @@
     } from "@material-ui/core";
     import { withStyles } from '@material-ui/styles'
   
-  // Styled Components
+  // STYLED COMPONENTS
     import styled from "styled-components";
 
 // -- ** -- USER ACTIONS / PAGE INTERACTION -- ** --
