@@ -1,54 +1,35 @@
-// REACT
-import React from "react";
+// -- ** -- DEPENDENCIES -- ** --
+    // REACT
+        import React from "react";
+        import compose from 'recompose/compose';
 
-// REDUX
-    import { connect } from "react-redux";
+    // REDUX
+        import { connect } from "react-redux";
 
-// MATERIAL UI
-    import Table from "@material-ui/core/Table";
-    import TableBody from "@material-ui/core/TableBody";
-    import TableCell from "@material-ui/core/TableCell";
-    import TableHead from "@material-ui/core/TableHead";
-    import TablePagination from "@material-ui/core/TablePagination";
-    import TableRow from "@material-ui/core/TableRow";
-    import TableSortLabel from "@material-ui/core/TableSortLabel";
-    import Toolbar from "@material-ui/core/Toolbar";
-    import Typography from "@material-ui/core/Typography";
-    import Paper from "@material-ui/core/Paper";
-    import Tooltip from "@material-ui/core/Tooltip";
-    import Chip from '@material-ui/core/Chip';
-    
-    
-    // STYLED ... will need
-    import { withStyles } from "@material-ui/core/styles";
-    
-    // DONT NEED ... yet ... ever?
-    import Checkbox from "@material-ui/core/Checkbox";
-    import IconButton from "@material-ui/core/IconButton";
-    import { lighten } from "@material-ui/core/styles/colorManipulator";
-    import classNames from "classnames";
-    import DeleteIcon from "@material-ui/icons/Delete";
-    import FilterListIcon from "@material-ui/icons/FilterList";
-    
-// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
-// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
-// NOTES
-// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
-// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
+    // MATERIAL UI
+        import { 
+            Paper,
+            Table, TableHead, TableBody, TableRow, TableCell,
+            TableSortLabel, Tooltip,
+            Chip,
+            TablePagination,
 
-/* 
+        } from "@material-ui/core";
 
-notes: 
-    the TABLE HEAD & the actual TABLE are different components
-
-*/
+        import { 
+            withStyles
+        } from '@material-ui/styles'
+        
+        import { 
+            DeleteIcon, IconButton,
+            FilterListIcon
+        } from "@material-ui/icons/Delete";
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // SORTING FUNCTIONS -- Table Head
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
-
 
 function desc(a, b, orderBy) {
     console.log('SORTING FUNCTIONS -> desc')
@@ -87,8 +68,6 @@ function getSorting(order, orderBy) {
 		? (a, b) => desc(a, b, orderBy)
 		: (a, b) => -desc(a, b, orderBy);
 }
-
-
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
@@ -257,6 +236,26 @@ class EnhancedTableHead extends React.Component {
 // Example of using with styles -- keep for later
     // EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
+// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
+// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
+// Styling
+// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
+// -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
+
+    // -1-
+    // Material UI --> withStyles()
+        const styles = theme => ({
+
+
+        })
+
+
+
+    // -2-
+    // Styled Components
+
+
+
 
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
@@ -278,7 +277,7 @@ class HomepageTable extends React.Component {
         filterBy: undefined,
 
 		page: 0,
-		rowsPerPage: 5
+		rowsPerPage: 10
 	};
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- //
@@ -607,4 +606,9 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {})(HomepageTable);
+// export default connect(mapStateToProps, {})(HomepageTable);
+
+export default compose(
+    withStyles(styles),
+    connect(mapStateToProps, {})
+)(HomepageTable)

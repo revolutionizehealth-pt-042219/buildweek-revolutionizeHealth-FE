@@ -9,6 +9,13 @@ import { AppBar, Toolbar } from "@material-ui/core";
 
 // IMPORT ACTION CREATORS
 
+// Colors
+import colors from '../styles/colorVariables'
+
+// MATERIAL UI
+import compose from 'recompose/compose';
+import { withStyles } from '@material-ui/styles'
+
 // Styled Components
 import styled from "styled-components";
 
@@ -66,11 +73,25 @@ const FooterContent = styled.div`
   }
 `;
 
+
+// Material UI Styling
+const styles = theme => ({
+  MaterialUI_withStyles_footer: {
+    backgroundColor: colors.footer
+  }
+})
+
 class Footer extends Component {
   render() {
+    const { classes } = this.props
+
     return (
       <FooterContainer className="footerContainer">
-        <StyledAppBar className="AppBar_materialUI" position="static">
+        <StyledAppBar 
+          position="static"
+          // className="AppBar_materialUI" 
+          className={classes.MaterialUI_withStyles_footer}
+        >
           <StyledToolbar className="ToolBar_materialUI">
             <FooterTitle>FOOTER COMPONENT TITLE</FooterTitle>
             <FooterContentContainer>
@@ -102,7 +123,12 @@ class Footer extends Component {
 // Map State To Props
 
 // Connect
-export default connect(
-  null,
-  {}
-)(Footer);
+// export default connect(
+//   null,
+//   {}
+// )(Footer);
+
+export default compose(
+  withStyles(styles),
+  connect(null, {})
+)(Footer)
