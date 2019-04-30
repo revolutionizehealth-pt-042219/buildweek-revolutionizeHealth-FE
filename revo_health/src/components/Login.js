@@ -1,8 +1,14 @@
 // REACT
 import React, { Component } from "react";
 
+// REDUX
+import { connect } from 'react-redux'
+
 // Styled Components
 import styled from "styled-components";
+
+// IMPORT ACTION CREATOR
+  import { login } from '../actions/a_login'
 
 // MATERIAL UI
 
@@ -92,8 +98,13 @@ class Login extends Component {
 
   handleLoginSubmit = e => {
     e.preventDefault();
+
     const user = this.state.username;
-    localStorage.setItem("user", user);
+    localStorage.setItem("username", user);
+
+
+    this.props.login(this.state)
+
     // window.location.reload();
   };
 
@@ -125,12 +136,12 @@ class Login extends Component {
           <form>
             <FormControl margin="normal" required fullWidth>
               <InputLabel>UserName</InputLabel>
-              <Input name="username" />
+              <Input onChange={this.handleInputChange} name="username" />
             </FormControl>
 
             <FormControl margin="normal" required fullWidth>
               <InputLabel>Password</InputLabel>
-              <Input name="password" type="password" />
+              <Input onChange={this.handleInputChange} name="password" type="password" />
             </FormControl>
 
             <StyledButton
@@ -160,4 +171,7 @@ class Login extends Component {
   }
 }
 
-export default Login;
+
+// Connect
+  export default connect(null, {login})(Login)
+
