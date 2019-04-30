@@ -21,18 +21,21 @@
 // -- *** START CODE *** -- //
 
 class RegisterUser extends Component {
-constructor(props) {
-        type: undefined
-        first_name: undefined
-        last_name: undefined
-        
-        username: undefined
-        password: undefined
-        email: undefined
-        
-        has_insurance: undefined
-        insurance_name: undefined
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            type: undefined,
+            first_name: undefined,
+            last_name: undefined,
+            
+            username: undefined,
+            password: undefined,
+            email: undefined,
+            
+            has_insurance: undefined,
+            insurance_name: undefined
+        };
+    }
     
 // When typing in the username/password, it gets saved into state.
     handleInputChange = e => {
