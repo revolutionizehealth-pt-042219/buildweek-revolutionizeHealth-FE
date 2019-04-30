@@ -104,7 +104,7 @@ class LoginPage extends Component {
 
     this.props.login(this.state);
 
-    // window.location.reload();
+    window.location.reload();
   };
 
   handleRegister = e => {
@@ -157,9 +157,6 @@ class LoginPage extends Component {
             >
               Log in
             </StyledButton>
-            <button onClick={this.handleLoginSubmit} className="login-button">
-              Log In button
-            </button>
             <StyledButton
               className="register"
               onClick={this.handleRegister}
