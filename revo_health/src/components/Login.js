@@ -89,12 +89,23 @@ class Login extends Component {
 
   // Submitting the form will set a "User" in local storage. within 'withAuthenticate'
   // it checks to see if it's present, and if so, you're considered logged in.
+
   handleLoginSubmit = e => {
     e.preventDefault();
     const user = this.state.username;
     localStorage.setItem("user", user);
     // window.location.reload();
   };
+
+  handleRegister = e => {
+    e.preventDefault()
+
+    console.log(this)
+    console.log(this.props)
+    console.log(this.props.history)
+
+    this.props.history.push('/register')
+  }
 
   render() {
     return (
@@ -131,6 +142,16 @@ class Login extends Component {
               color="primary"
             >
               Log in
+            </StyledButton>
+            <StyledButton
+              className="register"
+              onClick={this.handleRegister}
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
+              Register New User
             </StyledButton>
           </form>
         </StyledPaper>

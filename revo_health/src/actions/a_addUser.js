@@ -23,7 +23,7 @@
 
         // Start Axios Call
             axios
-                .get()
+                .get('https://buildweek-revo-health-be.herokuapp.com/api/users/register')
                 .then( res => {
                     console.log( res )
 
