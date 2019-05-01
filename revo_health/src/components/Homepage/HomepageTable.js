@@ -338,7 +338,7 @@ class HomepageTable extends React.Component {
 
         componentDidMount() {
             console.log('INSIDE OF COMPONENT DID MOUNT')
-            this.setState_w_dummyData()
+            // this.setState_w_dummyData()
         }
 
         setState_w_dummyData = () => {

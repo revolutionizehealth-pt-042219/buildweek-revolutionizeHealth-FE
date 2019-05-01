@@ -1,29 +1,29 @@
 // ACTION TYPES
     // Getting Users
     import {
-        GET_USERS_START,
-        GET_USERS_SUCCESS,
-        GET_USERS_FAILURE,
-    } from '../actions/a_getUsers'
+        GET_USER_START,
+        GET_USER_SUCCESS,
+        GET_USER_FAILURE,
+    } from '../actions/a_getUser'
 
-    // Adding User
-    import {
-        ADD_USERS_START,
-        ADD_USERS_SUCCESS,
-        ADD_USERS_FAILURE,
-    } from '../actions/a_addUser'
+    // // Adding User
+    // import {
+    //     ADD_USER_START,
+    //     ADD_USER_SUCCESS,
+    //     ADD_USER_FAILURE,
+    // } from '../actions/a_addUser'
 
-    // Editing User
-    import {
-        EDIT_USERS_START,
-        EDIT_USERS_SUCCESS,
-        EDIT_USERS_FAILURE,
-    } from '../actions/a_editUser'
+    // // Editing User
+    // import {
+    //     EDIT_USER_START,
+    //     EDIT_USER_SUCCESS,
+    //     EDIT_USER_FAILURE,
+    // } from '../actions/a_editUser'
 
 
 // Initial State
     const initialState = {
-        customers: [],
+        currentUser: [],
         error: '', 
 
         is_gettingUsers: false,
@@ -40,7 +40,7 @@
         switch(action.type) {
 
         // Getting Users
-            case GET_USERS_START: 
+            case GET_USER_START: 
                 return {
                     ...state,
 
@@ -48,16 +48,16 @@
                     error: ''
                 }
             
-            case GET_USERS_SUCCESS:
+            case GET_USER_SUCCESS:
                 return {
                     ...state,
 
-                    customers: action.payload,
+                    currentUser: action.payload,
                     is_gettingUsers: false,
                     error: ''
                 }
             
-            case GET_USERS_FAILURE:
+            case GET_USER_FAILURE:
                 return {
                     ...state, 
 
@@ -65,57 +65,57 @@
                     error:'FAILED to get users'
                 }
             
-        // Adding Users
-            case ADD_USERS_START: 
-                return {
-                    ...state,
+        // // Adding Users
+        //     case ADD_USER_START: 
+        //         return {
+        //             ...state,
 
-                    is_addingUser: true,
-                    error: ''
-                }
+        //             is_addingUser: true,
+        //             error: ''
+        //         }
         
-            case ADD_USERS_SUCCESS:
-                return {
-                    ...state,
+        //     case ADD_USER_SUCCESS:
+        //         return {
+        //             ...state,
 
-                    customers: action.payload,
-                    is_addingUser: false,
-                    error: ''
-                }
+        //             customers: action.payload,
+        //             is_addingUser: false,
+        //             error: ''
+        //         }
             
-            case ADD_USERS_FAILURE:
-                return {
-                    ...state, 
+        //     case ADD_USER_FAILURE:
+        //         return {
+        //             ...state, 
 
-                    is_addingUser: false,
-                    error:'FAILED to add users'
-                }
+        //             is_addingUser: false,
+        //             error:'FAILED to add users'
+        //         }
 
-        // Editing Users
-            case EDIT_USERS_START: 
-                return {
-                    ...state,
+        // // Editing Users
+        //     case EDIT_USER_START: 
+        //         return {
+        //             ...state,
 
-                    is_editingUser: true,
-                    error: ''
-                }
+        //             is_editingUser: true,
+        //             error: ''
+        //         }
         
-            case EDIT_USERS_SUCCESS:
-                return {
-                    ...state,
+        //     case EDIT_USER_SUCCESS:
+        //         return {
+        //             ...state,
 
-                    customers: action.payload,
-                    is_editingUser: false,
-                    error: ''
-                }
+        //             customers: action.payload,
+        //             is_editingUser: false,
+        //             error: ''
+        //         }
             
-            case EDIT_USERS_FAILURE:
-                return {
-                    ...state, 
+        //     case EDIT_USER_FAILURE:
+        //         return {
+        //             ...state, 
 
-                    is_editingUser: false,
-                    error:'FAILED to edit users'
-                }
+        //             is_editingUser: false,
+        //             error:'FAILED to edit users'
+        //          }
             
         // Default
             default:

@@ -22,8 +22,6 @@ import {
   Typography
 } from "@material-ui/core";
 
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-
 // Assets
 import logo from "../assets/RevLogo2.svg";
 
@@ -88,32 +86,22 @@ class LoginPage extends Component {
     };
   }
 
-  // When typing in the username/password, it gets saved into state.
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // Submitting the form will set a "User" in local storage. within 'withAuthenticate'
-  // it checks to see if it's present, and if so, you're considered logged in.
-
   handleLoginSubmit = e => {
-    // e.preventDefault();
+    e.preventDefault();
+    
+    console.log("CHECK FOR HISTORY", this.props)
 
-    localStorage.setItem("username", this.state.username);
-    localStorage.setItem("password", this.state.password);
+    this.props.login(this.state)
+      .then( () => this.props.history.push('/'))
 
-    this.props.login(this.state);
-
-    window.location.reload();
   };
 
   handleRegister = e => {
     e.preventDefault();
-
-    console.log(this);
-    console.log(this.props);
-    console.log(this.props.history);
-
     this.props.history.push("/register");
   };
 
@@ -124,12 +112,10 @@ class LoginPage extends Component {
           <LogoWrapper>
             <AppLogo src={logo} alt="" />
           </LogoWrapper>
-          <Avatar>
-            <LockOutlinedIcon />
-          </Avatar>
+
 
           <Typography component="h1" variant="h5">
-            Log in
+            Welcome to Revo!
           </Typography>
 
           <form>
@@ -174,8 +160,14 @@ class LoginPage extends Component {
   }
 }
 
+const mapStateToProps = ( state ) => {
+  return {
+    is_loggingIn: state.login_reducer.is_loggingIn
+  }
+}
+
 // Connect
 export default connect(
-  null,
+  mapStateToProps,
   { login }
 )(LoginPage);

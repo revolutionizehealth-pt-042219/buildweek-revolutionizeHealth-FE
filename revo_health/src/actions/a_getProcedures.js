@@ -18,7 +18,9 @@ export const GET_PROCEDURES_FAILURE = 'GET_PROCEDURES_FAILURE'
                 dispatch({ type: GET_PROCEDURES_START })
         // Start Axios Call
             axios
-                .get()
+                .get('', {
+                    headers: { Authentication: localStorage.getItem('token')}
+                })
                 .then( res => {
                     console.log( res )
                     

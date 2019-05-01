@@ -1,6 +1,9 @@
 // REACT
 import React, { Component } from "react";
 
+  // HISTORY
+    import createBrowserHistory from '../../utils/history'
+
 // REDUX
 import { connect } from "react-redux";
 
@@ -11,14 +14,25 @@ import colors from '../../styles/colorVariables'
 import {
   Card,
   CardContent,
-  // Typography,
-  Avatar
+  Button,
 } from "@material-ui/core";
+
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  } from "@material-ui/core";
+
+  import Select from '@material-ui/core/Select';
+  import MenuItem from '@material-ui/core/MenuItem';
 
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/styles'
 
 // IMPORT ACTION CREATORS
+  // -1-
+  // Get User Info
+    import { get_user } from '../../actions/a_getUser'
 
 
 // Styled Components
@@ -55,12 +69,56 @@ const styles = theme => ({
 })
 
 class UserProfile extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      editUser_view: false,
+      udpateUserObj: {
+        type: undefined,
+        first_name: undefined,
+        last_name: undefined,
+        
+        username: undefined,
+        email: undefined,
+        
+        has_insurance: undefined,
+        insurance_name: undefined
+      }
+    }
+  }
+  
+  componentDidMount() {
+    const currentUserID = this.props.userID
+    this.props.get_user(currentUserID)
+  }
+
+  openEdit_view = e => {
+    e.preventDefault()
+    console.log('edit user clicked')
+
+    this.setState(prevState => ({
+      ...prevState,
+      editUser_view: !prevState.editUser_view
+    }))
+    
+  }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submit_userProfileEdits = e => {
+    e.preventDefault() 
+    this.openEdit_view(e)
+
+    // CALL EDIT ACTION CREATOR
+    // make sure to MATCH SHAPE before sending OBJECT to ACTION CREATOR
+
+  }
+  
+
+
   render() {
-    console.log(this.props);
-
-    //WHAT USER??
-    const UserIndex = 2;
-
     const { classes } = this.props
 
     return (
@@ -69,23 +127,113 @@ class UserProfile extends Component {
         className={ classes.userProfile_Card}
       >
         <StyledCardContent>
-          <Avatar alt="User#" src="" className="avatarIMG" />
           <ProfileInfo>
-            <h2>
-              {this.props.people[UserIndex].first_name +
-                " " +
-                this.props.people[UserIndex].last_name}
-            </h2>
-            <h3>{"email:" + " " + this.props.people[UserIndex].email}</h3>
-            <h4>
-              {this.props.people[UserIndex].has_insurance ? (
-                "Current Insurance:" +
-                " " +
-                this.props.people[UserIndex].insurance_name
-              ) : (
-                <button>Please Add Your Current Insurance</button>
-              )}
-            </h4>
+            {
+              this.state.editUser_view &&
+                <form>
+                  <FormControl margin="normal" required fullWidth>
+                    <InputLabel>Patient Type</InputLabel>
+                    <Select
+                        value={this.state.type}
+                        onChange={this.handleInputChange}
+                        inputProps={{
+                        name: 'type',
+                        }}
+                    >
+                        <MenuItem value={'Patient'}>Patient</MenuItem>
+                        <MenuItem value={'Doctor'}>Doctor</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>First Name</InputLabel>
+                      <Input
+                          name="first_name"
+                          type='text'
+                          onChange={this.handleInputChange}
+                      />
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>Last Name</InputLabel>
+                      <Input
+                          name="last_name"
+                          type='text'
+                          onChange={this.handleInputChange}
+                      />
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>User Name</InputLabel>
+                      <Input
+                          name="username"
+                          type='text'
+                          onChange={this.handleInputChange}
+                      />
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>Email</InputLabel>
+                      <Input
+                          name="email"
+                          type='text'
+                          onChange={this.handleInputChange}
+                      />
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>Have Insurance?</InputLabel>
+                      <Select
+                          value={this.state.has_insurance}
+                          onChange={this.handleInputChange}
+                          inputProps={{
+                          name: 'has_insurance',
+                          }}
+                      >
+                          <MenuItem value={true}>Yes</MenuItem>
+                          <MenuItem value={false}>No</MenuItem>
+                      </Select>
+                  </FormControl>
+
+                  <FormControl margin="normal" required fullWidth>
+                      <InputLabel>Insurance Name</InputLabel>
+                      <Input
+                          name="insurance_name"
+                          type='text'
+                          onChange={this.handleInputChange}
+                      />
+                  </FormControl>
+                  <Button 
+                    onClick={this.submit_userProfileEdits}
+                    variant="outlined"
+                  > 
+                    Submit Profile Edits 
+                  </Button>
+                </form>
+            }
+            
+            {
+              !this.state.editUser_view &&
+              <>
+                <h3>{this.props.currentUser.type}</h3>
+                <h3>{this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name}</h3>
+                <h3>{this.props.currentUser.username}</h3>
+                <h3>{this.props.currentUser.email}</h3>
+                {
+                  this.props.currentUser.has_insurance && <h3> {this.props.currentUser.insurance_name} </h3>
+                }
+                <Button 
+                  onClick={this.openEdit_view}
+                  variant="outlined"
+                > Edit Profile </Button>
+              </>
+            }
+            
+
+
+
+
+            
           </ProfileInfo>
         </StyledCardContent>
       </StyledCard>
@@ -95,13 +243,16 @@ class UserProfile extends Component {
 
 // Map State To Props
 
-// Connect
-// export default connect(
-//   null,
-//   {}
-// )(UserProfile);
+const mapStateToProps = ( state ) => {
+  return {
+    userID: state.login_reducer.user.id,
+    currentUser: state.users_reducer.currentUser
+  }
+}
 
 export default compose(
   withStyles(styles),
-  connect(null, {})
+  connect(mapStateToProps, {
+    get_user, 
+  })
 )(UserProfile)

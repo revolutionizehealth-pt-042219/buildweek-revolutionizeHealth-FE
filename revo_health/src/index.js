@@ -9,6 +9,8 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 
+
+
 // Dev Tools
 import { compose } from "redux";
 
@@ -32,43 +34,44 @@ import { procedures } from './dummyData/dummyData'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // PreLoaded State 
-  const preloadedState = {
-    dummyPatients: patients,
-    dummyProcedures: procedures,
+  // const preloadedState = {
+  //   dummyPatients: patients,
+  //   dummyProcedures: procedures,
 
 
 
     
-    // DONT KNOW HOW ELSE TO GET THIS TO RENDER WITH APPROPRAITE INITIAL STATES
-    users_reducer: {
-      customers: [],
-      error: '', 
+  //   // DONT KNOW HOW ELSE TO GET THIS TO RENDER WITH APPROPRAITE INITIAL STATES
+  //   users_reducer: {
+  //     customers: [],
+  //     error: '', 
 
-      is_gettingUsers: false,
+  //     is_gettingUsers: false,
 
-      is_addingUser: false,
+  //     is_addingUser: false,
 
-      is_editingUser: false
-    },
+  //     is_editingUser: false
+  //   },
 
-    procedures_reducer: {
-      procedures: [],
-      error: '',
+  //   procedures_reducer: {
+  //     procedures: [],
+  //     error: '',
 
-      is_gettingProcedures: false,
+  //     is_gettingProcedures: false,
 
-      is_addingProcedures: false,
+  //     is_addingProcedures: false,
 
-      is_editingProcedures: false,
-    },
-  }
+  //     is_editingProcedures: false,
+  //   },
+  // }
 
 // Create Store
 const store = createStore(
   rootReducer,
-  preloadedState,
+  // preloadedState,
   composeEnhancers(applyMiddleware(thunk, logger))
 );
+
 
 // Render App
 ReactDOM.render(
