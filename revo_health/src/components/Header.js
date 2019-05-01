@@ -10,7 +10,7 @@ import { connect } from "react-redux";
   import colors from '../styles/colorVariables'
 
 // MATERIAL UI
-import { AppBar, Toolbar, IconButton } from "@material-ui/core";
+import { AppBar, Toolbar, Button, IconButton } from "@material-ui/core";
 
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/styles'
@@ -51,6 +51,28 @@ import styled from "styled-components";
   })
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showMenu: false
+    }
+  }
+
+  toggle_Menu = e => {
+    e.preventDefault() 
+
+    this.setState(prevState => ({
+      ...prevState,
+      showMenu: !prevState.showMenu
+    }))
+  }
+
+  GoTo_UserProfile = e => {
+    // this.props.history.push('/user')
+    console.log(this.props)
+  }
+
     render() {
       const { classes } = this.props
     
@@ -63,9 +85,41 @@ class Header extends Component {
             
           >
             <StyledToolbar className="ToolBar_materialUI">
-              <IconButton color="inherit" aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
+              {
+                this.state.showMenu ? (
+                  <>
+                    <Button 
+                      onClick={this.toggle_Menu}
+                      variant="outlined"
+                    >
+                      Close Menu
+                    </Button>
+
+                    {
+                      localStorage.getItem('token') && 
+                        <div>
+                          <Button 
+                          variant="outlined"
+                          onClick={this.GoTo_UserProfile}
+                          > User Profile </Button>
+                          <Button variant="outlined"> Add Procedure </Button>
+                        </div>
+                    }
+                    {
+                      !localStorage.getItem('token') && 
+                        <div>
+                          <Button variant="outlined"> Sign Up </Button>
+                        </div>
+                    }
+                  </>
+                ) : (
+                  <IconButton color="inherit" aria-label="Menu">
+                    <MenuIcon onClick={this.toggle_Menu}/>
+                  </IconButton>
+
+                )
+              }
+              
 
               {/* <HeaderTitle>USER COMPONENT TITLE</HeaderTitle> */}
             </StyledToolbar>

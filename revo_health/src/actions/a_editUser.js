@@ -5,9 +5,9 @@
 // -- *** START CODE *** -- //
 
 // Create Action Types
-    export const EDIT_USERS_START = 'EDIT_USERS_START'
-    export const EDIT_USERS_SUCCESS = 'EDIT_USERS_SUCCESS'
-    export const EDIT_USERS_FAILURE = 'EDIT_USERS_FAILURE'
+    export const EDIT_USER_START = 'EDIT_USER_START'
+    export const EDIT_USER_SUCCESS = 'EDIT_USER_SUCCESS'
+    export const EDIT_USER_FAILURE = 'EDIT_USER_FAILURE'
 
 // Action Creator
     export const edit_user = passedItem => {
@@ -15,7 +15,7 @@
 
         // Send First Action
             return (dispatch) => {
-                dispatch({ type: EDIT_USERS_START })
+                dispatch({ type: EDIT_USER_START })
             
         
         // Start Axiox Call
@@ -25,7 +25,7 @@
                     console.log( res )
 
                     dispatch({
-                        type: EDIT_USERS_SUCCESS,
+                        type: EDIT_USER_SUCCESS,
                         payload: res.data
                     })
                 })
@@ -33,7 +33,7 @@
                     console.log( err )
                     
                     dispatch({
-                        type: EDIT_USERS_FAILURE,
+                        type: EDIT_USER_FAILURE,
                         payload: err
                     })
                 })

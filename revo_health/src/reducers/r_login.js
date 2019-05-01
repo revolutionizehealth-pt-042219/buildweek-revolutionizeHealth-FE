@@ -1,3 +1,6 @@
+// AXIOS
+    import jwt from 'jsonwebtoken'
+
 // ACTION TYPES
     // Getting Procedures
     import {
@@ -9,11 +12,15 @@
 // Initial State 
 const initialState = {
     is_loggingIn: false,
+    token: localStorage.getItem('token'), 
+    user: jwt.decode(localStorage.getItem('token')),
     error: '',
 }
 
 // Reducer 
-export const procedures_reducer = (state = initialState, action) => {
+export const login_reducer = (state = initialState, action) => {
+    // console.log(action.payload)
+    
     switch(action.type) {
 
     // Getting Procedures
@@ -28,7 +35,8 @@ export const procedures_reducer = (state = initialState, action) => {
             return {
                 ...state,
 
-                procedures: action.payload,
+                user: action.payload.user,
+                token: action.payload.data.token,
                 is_loggingIn: false,
                 error: ''
             }

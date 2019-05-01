@@ -53,8 +53,8 @@ const LoadMoreButtonContainer = styled.div`
 
 class PersonalProcedures extends Component {
   render() {
-    console.log(this.props);
-    console.log(this.props.procedures);
+    // console.log(this.props);
+    // console.log(this.props.procedures);
 
     return (
       <PersonalProceduresContainer className="PersonalProceduresContainer">
@@ -65,9 +65,9 @@ class PersonalProcedures extends Component {
             </PersonalProceduresTitle>
 
             {/* Map and return appropraite # of Procedures */}
-            {this.props.procedures.map(procedure => {
+            {/* {this.props.procedures.map(procedure => {
               return <Procedure procedure={procedure} />;
-            })}
+            })} */}
 
             {/* <Procedure />
             <Procedure />

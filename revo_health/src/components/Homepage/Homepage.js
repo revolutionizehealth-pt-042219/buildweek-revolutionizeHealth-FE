@@ -23,6 +23,10 @@
 // -- ** -- USER ACTIONS / PAGE INTERACTION -- ** --
   // IMPORT ACTION CREATORS
     // -1-
+      // Get available procedures @ componentDidMount()
+      import { get_procedures } from '../../actions/a_getProcedures'
+
+    // -2-
       // Add Procedure
     
 // -- ** -- DATA -- ** -- 
@@ -61,6 +65,14 @@
 
 // -- ** -- RENDERING -- ** -- //
 class Homepage extends Component {
+  
+  componentDidMount() {
+    // Get Available Procedures Action Creator 
+    
+    // this.props.get_procedures()
+  }
+  
+  
   render() {  
     const { classes } = this.props
 
@@ -83,12 +95,7 @@ class Homepage extends Component {
   }
 }
 
-// export default connect(
-//   null,
-//   {}
-// )(Homepage);
-
 export default compose(
   withStyles(styles),
-  connect(null, {})
+  connect(null, { get_procedures })
 )(Homepage)

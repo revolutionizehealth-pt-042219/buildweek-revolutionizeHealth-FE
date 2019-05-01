@@ -22,7 +22,7 @@
             dispatch({ type: ADD_USERS_START })
 
         // Start Axios Call
-            axios
+            return axios
                 .post('https://buildweek-revo-health-be.herokuapp.com/api/users/register', newUser)
                 .then( res => {
                     console.log( res )
