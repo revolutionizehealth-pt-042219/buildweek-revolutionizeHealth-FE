@@ -1,121 +1,120 @@
 // ACTION TYPES
+// Getting Procedures
+import {
+  GET_PROCEDURES_START,
+  GET_PROCEDURES_SUCCESS,
+  GET_PROCEDURES_FAILURE
+} from "../actions/a_getProcedures";
+
+// Adding Procedure
+import {
+  EDIT_PROCEDURE_START,
+  EDIT_PROCEDURE_SUCCESS,
+  EDIT_PROCEDURE_FAILURE
+} from "../actions/a_editProcedure";
+
+// Editing a Procedure
+import {
+  ADD_PROCEDURE_START,
+  ADD_PROCEDURE_SUCCESS,
+  ADD_PROCEDURE_FAILURE
+} from "../actions/a_addProcedure";
+
+// Initial State
+const initialState = {
+  procedures: [],
+  error: "",
+
+  is_gettingProcedures: false,
+
+  is_addingProcedures: false,
+
+  is_editingProcedures: false
+};
+
+// Reducer
+export const procedures_reducer = (state = initialState, action) => {
+  switch (action.type) {
     // Getting Procedures
-        import {
-            GET_PROCEDURES_START,
-            GET_PROCEDURES_SUCCESS,
-            GET_PROCEDURES_FAILURE,
-        } from '../actions/a_getProcedures'
+    case GET_PROCEDURES_START:
+      return {
+        ...state,
 
-    // Adding Procedure
-        import {
-            EDIT_PROCEDURE_START,
-            EDIT_PROCEDURE_SUCCESS,
-            EDIT_PROCEDURE_FAILURE,
-        } from '../actions/a_editProcedure'
+        is_gettingProcedures: true,
+        error: ""
+      };
+    case GET_PROCEDURES_SUCCESS:
+      return {
+        ...state,
 
-    // Editing a Procedure
-        import {
-            ADD_PROCEDURE_START,
-            ADD_PROCEDURE_SUCCESS,
-            ADD_PROCEDURE_FAILURE,
-        } from '../actions/a_addProcedure'
+        procedures: action.payload,
+        data: action.payload,
+        is_gettingProcedures: false,
+        error: ""
+      };
 
-// Initial State 
-    const initialState = {
-        procedures: [],
-        error: '',
+    case GET_PROCEDURES_FAILURE:
+      return {
+        ...state,
 
         is_gettingProcedures: false,
+        error: "FAILED to get procedures"
+      };
+
+    // Adding Procedures
+    case ADD_PROCEDURE_START:
+      return {
+        ...state,
+
+        is_addingProcedures: true,
+        error: ""
+      };
+
+    case ADD_PROCEDURE_SUCCESS:
+      return {
+        ...state,
+
+        procedures: action.payload,
+        is_addingProcedures: false,
+        error: ""
+      };
+
+    case ADD_PROCEDURE_FAILURE:
+      return {
+        ...state,
 
         is_addingProcedures: false,
+        error: "FAILED to add procedures"
+      };
 
-        is_editingProcedures: false,
-    }
+    // Editing Procedures
+    case EDIT_PROCEDURE_START:
+      return {
+        ...state,
 
-// Reducer 
-    export const procedures_reducer = (state = initialState, action) => {
-        switch(action.type) {
+        is_addingProcedures: true,
+        error: ""
+      };
 
-            
-        // Getting Procedures
-            case GET_PROCEDURES_START:
-                return {
-                    ...state,
-                    
-                    is_gettingProcedures: true,
-                    error: ''
-                }
-            case GET_PROCEDURES_SUCCESS:
-                return {
-                    ...state,
+    case EDIT_PROCEDURE_SUCCESS:
+      return {
+        ...state,
 
-                    procedures: action.payload,
-                    is_gettingProcedures: false,
-                    error: ''
-                }
-            
-            case GET_PROCEDURES_FAILURE:
-                return {
-                    ...state,
+        procedures: action.payload,
+        is_addingProcedures: false,
+        error: ""
+      };
 
-                    is_gettingProcedures: false,
-                    error: 'FAILED to get procedures'
-                }
+    case EDIT_PROCEDURE_FAILURE:
+      return {
+        ...state,
 
-        // Adding Procedures
-            case ADD_PROCEDURE_START:
-                return {
-                    ...state,
-                    
-                    is_addingProcedures: true,
-                    error: ''
-                }
-            
-            case ADD_PROCEDURE_SUCCESS:
-                return {
-                    ...state,
+        is_addingProcedures: false,
+        error: "FAILED to edit procedure"
+      };
 
-                    procedures: action.payload,
-                    is_addingProcedures: false,
-                    error: ''
-                }
-            
-            case ADD_PROCEDURE_FAILURE:
-                return {
-                    ...state,
-
-                    is_addingProcedures: false,
-                    error: 'FAILED to add procedures'
-                }
-            
-        // Editing Procedures
-            case EDIT_PROCEDURE_START:
-                return {
-                    ...state,
-
-                    is_addingProcedures: true,
-                    error: ''
-                }
-            
-            case EDIT_PROCEDURE_SUCCESS:
-                return {
-                    ...state,
-
-                    procedures: action.payload,
-                    is_addingProcedures: false,
-                    error: ''
-                }
-            
-            case EDIT_PROCEDURE_FAILURE:
-                return {
-                    ...state, 
-
-                    is_addingProcedures: false,
-                    error: 'FAILED to edit procedure'
-                }
-
-        // Default
-            default:
-                return state
-        }
-    }
+    // Default
+    default:
+      return state;
+  }
+};
