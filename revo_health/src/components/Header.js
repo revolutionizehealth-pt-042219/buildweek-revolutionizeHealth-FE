@@ -1,6 +1,7 @@
 // REACT
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UserComponent from "./UserComponent/UserComponent";
 
 // REDUX
 import { connect } from "react-redux";
@@ -67,19 +68,6 @@ class Header extends Component {
     }));
   };
 
-  GoTo_UserProfile = e => {
-    // this.props.history.push('/user')
-    console.log(this.props);
-  };
-
-  GoTo_SignUp = e => {
-    e.preventDefault();
-    console.log("CLICKED");
-    console.log(this.props);
-
-    // this.props.history.push("/register");
-  };
-
   render() {
     const { classes } = this.props;
 
@@ -92,33 +80,25 @@ class Header extends Component {
         >
           <StyledToolbar className="ToolBar_materialUI">
             {this.state.showMenu ? (
-              <>
+              <div>
                 <Button onClick={this.toggle_Menu} variant="outlined">
                   Close Menu
                 </Button>
 
                 {localStorage.getItem("token") && (
                   <div>
-                    <Button variant="outlined" onClick={this.GoTo_UserProfile}>
+                    <Button variant="outlined" component={Link} to="/user">
                       User Profile
                     </Button>
                     <Button variant="outlined"> Add Procedure </Button>
                   </div>
                 )}
                 {!localStorage.getItem("token") && (
-                  // <div>
-                  //   <Link to="/register">Sign Up</Link>
-                  // </div>
-                  <Button
-                    // onClick={this.GoTo_SignUp}
-                    component={Link}
-                    to="/register"
-                    variant="outlined"
-                  >
-                    Sign Up
+                  <Button component={Link} to="/login" variant="outlined">
+                    Login
                   </Button>
                 )}
-              </>
+              </div>
             ) : (
               <IconButton color="inherit" aria-label="Menu">
                 <MenuIcon onClick={this.toggle_Menu} />

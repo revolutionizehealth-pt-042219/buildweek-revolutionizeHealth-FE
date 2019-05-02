@@ -1,6 +1,7 @@
 // -- ** -- DEPENDENCIES -- ** --
 // REACT
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { connect } from "react-redux";
@@ -8,6 +9,7 @@ import { connect } from "react-redux";
 // MATERIAL UI
 import compose from "recompose/compose";
 import { withStyles } from "@material-ui/styles";
+import { Button } from "@material-ui/core";
 
 // STYLED COMPONENTS
 import styled from "styled-components";
@@ -99,8 +101,10 @@ class WelcomeMessage extends Component {
             Browse Our Community Contributions...Maybe Contribute Yourself :)
           </div>
           <div className="actionButtons">
-            <button className={classes.button}>Join the Community</button>
-            <button>Add A Procedure</button>
+            <Button variant="outlined" component={Link} to="/register">
+              Join the Community
+            </Button>
+            <Button variant="outlined">Add A Procedure</Button>
           </div>
         </MediaQueried_callToAction>
       </MediaQueries_WelcomeMessage>

@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // HISTORY
-import createBrowserHistory from "../../utils/history";
+// import createBrowserHistory from "../../utils/history";
 
 // REDUX
 import { connect } from "react-redux";
@@ -80,6 +80,7 @@ class UserProfile extends Component {
 
   componentDidMount() {
     const currentUserID = this.props.userID;
+    console.log("UserProfileID = " + currentUserID);
     this.props.get_user(currentUserID);
   }
 
@@ -199,7 +200,7 @@ class UserProfile extends Component {
             )}
 
             {!this.state.editUser_view && (
-              <>
+              <div>
                 <h3>{this.props.currentUser.type}</h3>
                 <h3>
                   {this.props.currentUser.first_name +
@@ -215,7 +216,7 @@ class UserProfile extends Component {
                   {" "}
                   Edit Profile{" "}
                 </Button>
-              </>
+              </div>
             )}
           </ProfileInfo>
         </StyledCardContent>
@@ -225,7 +226,6 @@ class UserProfile extends Component {
 }
 
 // Map State To Props
-
 const mapStateToProps = state => {
   return {
     userID: state.login_reducer.user.id,

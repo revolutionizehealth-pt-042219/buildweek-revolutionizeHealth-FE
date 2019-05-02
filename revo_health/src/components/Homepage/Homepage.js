@@ -17,6 +17,7 @@ import Header from "../Header";
 import WelcomeMessage from "./WelcomeMessage";
 import Map from "./Map";
 import HomepageTable from "./HomepageTable";
+import EnhancedTable from "./newTable";
 import Footer from "../Footer";
 
 // -- ** -- USER ACTIONS / PAGE INTERACTION -- ** --
@@ -60,17 +61,18 @@ class Homepage extends Component {
     const { classes } = this.props;
 
     return (
-      <>
+      <div>
         <Header />
         <div className={classes.homepage}>
           <WelcomeMessage />
           <StyledHomepageBody>
-            <HomepageTable />
+            {/* <HomepageTable /> */}
+            <EnhancedTable />
             <Map />
           </StyledHomepageBody>
         </div>
         <Footer />
-      </>
+      </div>
     );
   }
 }
