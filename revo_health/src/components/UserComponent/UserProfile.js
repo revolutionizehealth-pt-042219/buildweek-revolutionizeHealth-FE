@@ -228,7 +228,7 @@ class UserProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    userID: state.login_reducer.user.id,
+    // userID: state.login_reducer.user.id,
     currentUser: state.users_reducer.currentUser
   };
 };
