@@ -48,7 +48,7 @@ export const procedures_reducer = (state = initialState, action) => {
         ...state,
 
         procedures: action.payload,
-        data: action.payload,
+        // data: action.payload,
         is_gettingProcedures: false,
         error: ""
       };

@@ -24,6 +24,8 @@ export const get_procedures = () => {
       .then(res => {
         console.log(res);
 
+
+
         dispatch({
           type: GET_PROCEDURES_SUCCESS,
           payload: res.data
