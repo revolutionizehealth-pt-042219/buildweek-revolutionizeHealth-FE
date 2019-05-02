@@ -1,92 +1,72 @@
 // -- ** -- DEPENDENCIES -- ** --
-  // REACT
-    import React, { Component } from "react";
+// REACT
+import React, { Component } from "react";
 
-  // REDUX
-    import { connect } from "react-redux";
+// REDUX
+import { connect } from "react-redux";
 
-  // MATERIAL UI
-    import compose from 'recompose/compose';
-    import { withStyles } from '@material-ui/styles'
-  
-  // STYLED COMPONENTS
-    import styled from "styled-components";
-  
-  // COMPONENT
-    import Header from "../Header";
-      import WelcomeMessage from './WelcomeMessage'
-      import Map from "./Map";
-      import HomepageTable from './HomepageTable'
-    import Footer from "../Footer";
+// MATERIAL UI
+import compose from "recompose/compose";
+import { withStyles } from "@material-ui/styles";
 
+// STYLED COMPONENTS
+import styled from "styled-components";
+
+// COMPONENT
+import Header from "../Header";
+import WelcomeMessage from "./WelcomeMessage";
+import Map from "./Map";
+import HomepageTable from "./HomepageTable";
+import Footer from "../Footer";
 
 // -- ** -- USER ACTIONS / PAGE INTERACTION -- ** --
-  // IMPORT ACTION CREATORS
-    // -1-
-      // Get available procedures @ componentDidMount()
-      import { get_procedures } from '../../actions/a_getProcedures'
+// IMPORT ACTION CREATORS
 
-    // -2-
-      // Add Procedure
-    
-// -- ** -- DATA -- ** -- 
-  import colors from '../../styles/colorVariables'
+// -2-
+// Add Procedure
 
+// -- ** -- DATA -- ** --
+import colors from "../../styles/colorVariables";
 
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
-
 
 // -- ** -- STYLING -- ** -- //
-  // -1-
-  // Material UI --> withStyles()
-    const styles = theme => (
-      {
-      homepage: {
-        backgroundColor: colors.homepageBackground
-      },
+// -1-
+// Material UI --> withStyles()
+const styles = theme => ({
+  homepage: {
+    backgroundColor: colors.homepageBackground
+  }
+});
 
-    })
+// -2-
+// Styled Components
+const StyledHomepageBody = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-
-  // -2-
-  // Styled Components
-    const StyledHomepageBody = styled.div`
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      @media (max-width: 1200px) {
-        flex-direction: column-reverse;
-        
-      }
-    `;
-
+  @media (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
+`;
 
 // -- ** -- RENDERING -- ** -- //
 class Homepage extends Component {
-  
-  componentDidMount() {
-    // Get Available Procedures Action Creator 
-    
-    // this.props.get_procedures()
-  }
-  
-  
-  render() {  
-    const { classes } = this.props
+  componentDidMount() {}
+
+  render() {
+    const { classes } = this.props;
 
     return (
       <>
         <Header />
-        <div className={classes.homepage} >
-          
+        <div className={classes.homepage}>
           <WelcomeMessage />
           <StyledHomepageBody>
-
             <HomepageTable />
             <Map />
-
           </StyledHomepageBody>
         </div>
         <Footer />
@@ -97,5 +77,8 @@ class Homepage extends Component {
 
 export default compose(
   withStyles(styles),
-  connect(null, { get_procedures })
-)(Homepage)
+  connect(
+    null,
+    {}
+  )
+)(Homepage);

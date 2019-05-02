@@ -1,30 +1,30 @@
 // REACT
-  import React, { Component } from 'react';
-  import { Route } from "react-router-dom";
-  import { BrowserRouter as Router } from "react-router-dom";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // COMPONENTS
-  // -1-
-  // Private Route
-    import PrivateRoute from './components/PrivateRoute'
+// -1-
+// Private Route
+import PrivateRoute from "./components/PrivateRoute";
 
-  // -2-
-  // Login & Authentication
-    import LoginPage from "./components/Login";
+// -2-
+// Login & Authentication
+import LoginPage from "./components/Login";
 
 // Standard Components
-  import UserComponent from "./components/UserComponent/UserComponent";
-  import Homepage from "./components/Homepage/Homepage";
+import UserComponent from "./components/UserComponent/UserComponent";
+import Homepage from "./components/Homepage/Homepage";
 
   import RegisterUser from "./components/RegisterUser";
   
 
 // IMPORT ACTION CREATORS
-  // -1-
-  // getProcedures() --> on componentDidMount()
+// -1-
+// getProcedures() --> on componentDidMount()
 
 // CSS
-  import "./App.css";
+import "./App.css";
 
 // -- *** START CODE *** -- //
 // -- *** START CODE *** -- //
@@ -36,8 +36,8 @@ class App extends Component {
 
   render() {
     return (
-      <Router >
-        <div className='App'>
+      <Router>
+        <div className="App">
           {/* // Open Routes */}
             <Route exact path="/"            component={Homepage} />
             <Route exact path="/login"       component={LoginPage} />
@@ -45,14 +45,19 @@ class App extends Component {
           
 
           {/* // Protected Routes */}
-            <PrivateRoute exact path="/user" component={UserComponent} />  
+          <PrivateRoute
+            exact
+            path="/user"
+            render={props => {
+              return <UserComponent {...props} />;
+            }}
+          />
 
-            {/* <PrivateRoute exact path="/addProcedure" component={} />
+          {/* <PrivateRoute exact path="/addProcedure" component={} />
             <PrivateRoute exact path="/editProcedure" component={} />   */}
-
         </div>
       </Router>
-    )
+    );
   }
 }
 
