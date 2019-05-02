@@ -112,10 +112,10 @@ class Header extends Component {
                   <Button
                     // onClick={this.GoTo_SignUp}
                     component={Link}
-                    to="/register"
+                    to="/login"
                     variant="outlined"
                   >
-                    Sign Up
+                    Login
                   </Button>
                 )}
               </>

@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // HISTORY
-import createBrowserHistory from "../../utils/history";
+// import createBrowserHistory from "../../utils/history";
 
 // REDUX
 import { connect } from "react-redux";

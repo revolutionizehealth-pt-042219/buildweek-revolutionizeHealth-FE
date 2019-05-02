@@ -16,11 +16,10 @@ import LoginPage from "./components/Login";
 import UserComponent from "./components/UserComponent/UserComponent";
 import Homepage from "./components/Homepage/Homepage";
 
-  import RegisterUser from "./components/RegisterUser";
+import RegisterUser from "./components/RegisterUser";
 
-  // TEST COMPONENTS
-  import EnhancedTable from './components/Homepage/newTable'
-  
+// TEST COMPONENTS
+import EnhancedTable from "./components/Homepage/newTable";
 
 // IMPORT ACTION CREATORS
 // -1-
@@ -42,16 +41,10 @@ class App extends Component {
       <Router>
         <div className="App">
           {/* // Open Routes */}
-          <Route
-            exact
-            path="/"
-            render={props => {
-              return <Homepage {...props} />;
-            }}
-          />
+          <Route exact path="/" component={Homepage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterUser} />
-          
+
           {/* <Route exact path="/updateUser" component={UpdateUser} /> */}
 
           {/* // Protected Routes */}

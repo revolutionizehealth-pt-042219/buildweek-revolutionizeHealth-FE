@@ -24,19 +24,17 @@ import styled from "styled-components";
 // -- *** START CODE *** -- //
 
 const FooterContainer = styled.div`
-  
   .footerContent_1 {
-    width: 33%:
-    
+    width: 33%;
+
     // .UI_links {
     //   display: flex;
     //   margin-bottom: 20px;
-    // }  
-      
+    // }
+
     // div {
     //   margin-right: 20px;
     // }
-      
   }
 `;
 
