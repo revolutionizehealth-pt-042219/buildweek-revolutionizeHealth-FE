@@ -1,10 +1,18 @@
-// ACTION TYPES
+// -- *** IMPORT ACTION TYPES *** -- // 
 // Getting Procedures
 import {
   GET_PROCEDURES_START,
   GET_PROCEDURES_SUCCESS,
   GET_PROCEDURES_FAILURE
 } from "../actions/a_getProcedures";
+
+// Filtering Data
+import { 
+  FILTER_BY_PROCEDURE,
+  FILTER_BY_DOCTOR,
+  FILTER_BY_HOSPITAL,
+  REMOVE_FILTER,
+} from '../actions/a_filterTable'
 
 // Adding Procedure
 import {
@@ -20,20 +28,26 @@ import {
   ADD_PROCEDURE_FAILURE
 } from "../actions/a_addProcedure";
 
+// -- *** INITIAL STATE *** -- // 
+
 // Initial State
 const initialState = {
   procedures: [],
   error: "",
 
   is_gettingProcedures: false,
-
   is_addingProcedures: false,
+  is_editingProcedures: false,
 
-  is_editingProcedures: false
+  is_filtered: false,
+  filterBy: undefined,
+  filtered_data: []
 };
 
 // Reducer
 export const procedures_reducer = (state = initialState, action) => {
+  console.log('action', action)
+  
   switch (action.type) {
     // Getting Procedures
     case GET_PROCEDURES_START:
@@ -48,7 +62,7 @@ export const procedures_reducer = (state = initialState, action) => {
         ...state,
 
         procedures: action.payload,
-        data: action.payload,
+        filtered_data: action.payload,
         is_gettingProcedures: false,
         error: ""
       };
@@ -59,7 +73,56 @@ export const procedures_reducer = (state = initialState, action) => {
 
         is_gettingProcedures: false,
         error: "FAILED to get procedures"
+      };      
+
+    // Filters
+    case FILTER_BY_PROCEDURE:
+      return {
+        ...state,  
+        is_filtered: true,
+        filterBy: action.payload.columnToFilter,  
+        filtered_data: action.payload.filteredData 
       };
+
+    case FILTER_BY_DOCTOR:
+      return {
+          ...state,
+          is_filtered: true,
+          filterBy: action.payload.columnToFilter,  
+          filtered_data: action.payload.filteredData
+      };
+
+    case FILTER_BY_HOSPITAL:
+      return {
+          ...state,
+          is_filtered: true,
+          filterBy: action.payload.columnToFilter,  
+          filtered_data: action.payload.filteredData
+      }
+    
+    case REMOVE_FILTER:
+    return {
+      ...state,
+      is_filtered: false,
+      filterBy: undefined,
+      filtered_data: state.procedures
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Adding Procedures
     case ADD_PROCEDURE_START:

@@ -14,5 +14,6 @@ export const rootReducer = combineReducers({
   login_reducer,
 
   users_reducer,
-  procedures_reducer
+  procedures_reducer,
+
 });

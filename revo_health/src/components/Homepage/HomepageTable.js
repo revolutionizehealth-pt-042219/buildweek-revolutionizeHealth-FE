@@ -25,13 +25,12 @@ import { withStyles } from "@material-ui/styles";
 import {
   DeleteIcon,
   IconButton,
-  FilterListIcon
 } from "@material-ui/icons/Delete";
 
 // IMPORT ACTION CREATORS
 // -1-
 // Get available procedures @ componentDidMount()
-import { get_procedures } from "../../actions/a_getProcedures";
+  import { get_procedures } from "../../actions/a_getProcedures";
 
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
 // -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- //
@@ -323,12 +322,13 @@ class HomepageTable extends React.Component {
   componentDidMount() {
     console.log("INSIDE OF COMPONENT DID MOUNT");
     // Get Available Procedures Action Creator
-    this.props.get_procedures();
+    // this.props.get_procedures()
+
+      // .then(this.setProcedures_onState(this.props.procedures))
   }
 
   setProcedures_onState = procedures => {
     console.log("INSIDE setState_w_dummyData");
-
     console.log(procedures);
     let fillData = [];
     for (let i = 0; i < procedures.length; i++) {
@@ -436,6 +436,8 @@ class HomepageTable extends React.Component {
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
+    
+
       <Paper>
         {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <div>

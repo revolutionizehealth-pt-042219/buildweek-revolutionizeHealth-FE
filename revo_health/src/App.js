@@ -16,8 +16,11 @@ import LoginPage from "./components/Login";
 import UserComponent from "./components/UserComponent/UserComponent";
 import Homepage from "./components/Homepage/Homepage";
 
-import RegisterUser from "./components/RegisterUser";
-import UpdateUser from "./components/UpdateUser";
+  import RegisterUser from "./components/RegisterUser";
+
+  // TEST COMPONENTS
+  import EnhancedTable from './components/Homepage/newTable'
+  
 
 // IMPORT ACTION CREATORS
 // -1-
@@ -48,7 +51,8 @@ class App extends Component {
           />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterUser} />
-          <Route exact path="/updateUser" component={UpdateUser} />
+          
+          {/* <Route exact path="/updateUser" component={UpdateUser} /> */}
 
           {/* // Protected Routes */}
           <PrivateRoute
@@ -58,6 +62,9 @@ class App extends Component {
               return <UserComponent {...props} />;
             }}
           />
+
+          {/* // TESTING ROUTES */}
+          <Route exact path="/EnhancedTable" component={EnhancedTable} />
 
           {/* <PrivateRoute exact path="/addProcedure" component={} />
             <PrivateRoute exact path="/editProcedure" component={} />   */}

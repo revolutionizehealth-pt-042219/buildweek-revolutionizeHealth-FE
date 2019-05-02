@@ -19,10 +19,13 @@ export const get_procedures = () => {
     // Start Axios Call
     axios
       .get("https://buildweek-revo-health-be.herokuapp.com/api/procedures", {
-        headers: { Authentication: localStorage.getItem("token") }
+        // headers: { Authentication: localStorage.getItem("token") }
+        headers: { Authorization: localStorage.getItem("token") }
       })
       .then(res => {
         console.log(res);
+
+
 
         dispatch({
           type: GET_PROCEDURES_SUCCESS,
