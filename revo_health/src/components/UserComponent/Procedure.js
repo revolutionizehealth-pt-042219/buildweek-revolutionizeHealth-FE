@@ -155,7 +155,7 @@ class Procedure extends Component {
     console.log(this.props);
 
     return (
-      <>
+      <div>
         <Card className={classes.procedureCard}>
           <MediaQueries_CardContent>
             {/* <div className={classes.procedureContent_left}> */}
@@ -227,7 +227,7 @@ class Procedure extends Component {
             </div>
           </MediaQueries_CardContent>
         </Card>
-      </>
+      </div>
     );
   }
 }

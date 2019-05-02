@@ -22,6 +22,7 @@ export const login = loginInfo => {
     // Start Axios Call
     // RETURN axios call --> created Promise --> allowed to .then() off of action creator --> push user to homepage
     return axios
+
       .post(
         "https://buildweek-revo-health-be.herokuapp.com/api/users/login",
         loginInfo

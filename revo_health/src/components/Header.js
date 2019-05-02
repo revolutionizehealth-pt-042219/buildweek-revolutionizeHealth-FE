@@ -92,7 +92,7 @@ class Header extends Component {
         >
           <StyledToolbar className="ToolBar_materialUI">
             {this.state.showMenu ? (
-              <>
+              <div>
                 <Button onClick={this.toggle_Menu} variant="outlined">
                   Close Menu
                 </Button>
@@ -118,7 +118,7 @@ class Header extends Component {
                     Login
                   </Button>
                 )}
-              </>
+              </div>
             ) : (
               <IconButton color="inherit" aria-label="Menu">
                 <MenuIcon onClick={this.toggle_Menu} />

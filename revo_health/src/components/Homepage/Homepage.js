@@ -61,7 +61,7 @@ class Homepage extends Component {
     const { classes } = this.props;
 
     return (
-      <>
+      <div>
         <Header />
         <div className={classes.homepage}>
           <WelcomeMessage />
@@ -72,7 +72,7 @@ class Homepage extends Component {
           </StyledHomepageBody>
         </div>
         <Footer />
-      </>
+      </div>
     );
   }
 }

@@ -25,14 +25,14 @@ const UserContainer = styled.div`
 class UserComponent extends Component {
   render() {
     return (
-      <>
+      <div>
         <Header />
         <UserContainer>
           <UserProfile people={this.props.dummyPatients} />
           <PersonalProcedures procedures={this.props.dummyProcedures} />
         </UserContainer>
         <Footer />
-      </>
+      </div>
     );
   }
 }
