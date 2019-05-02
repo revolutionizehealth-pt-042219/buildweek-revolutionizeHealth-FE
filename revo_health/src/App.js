@@ -48,13 +48,7 @@ class App extends Component {
           {/* <Route exact path="/updateUser" component={UpdateUser} /> */}
 
           {/* // Protected Routes */}
-          <PrivateRoute
-            exact
-            path="/user"
-            render={props => {
-              return <UserComponent {...props} />;
-            }}
-          />
+          <PrivateRoute exact path="/user" component={UserComponent} />
 
           {/* // TESTING ROUTES */}
           <Route exact path="/EnhancedTable" component={EnhancedTable} />

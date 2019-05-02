@@ -80,6 +80,7 @@ class UserProfile extends Component {
 
   componentDidMount() {
     const currentUserID = this.props.userID;
+    console.log("UserProfileID = " + currentUserID);
     this.props.get_user(currentUserID);
   }
 

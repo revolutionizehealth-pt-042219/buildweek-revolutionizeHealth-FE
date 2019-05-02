@@ -1,0 +1,8 @@
+[build]
+base = "revolutionizehealth-pt-042219/"
+publish = "revolutionizehealth-pt-042219/build"
+command = "yarn build"
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
