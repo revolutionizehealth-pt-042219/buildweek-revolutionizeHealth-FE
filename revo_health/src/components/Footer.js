@@ -1,5 +1,6 @@
 // REACT
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { connect } from "react-redux";
@@ -10,11 +11,11 @@ import { AppBar, Toolbar } from "@material-ui/core";
 // IMPORT ACTION CREATORS
 
 // Colors
-import colors from '../styles/colorVariables'
+import colors from "../styles/colorVariables";
 
 // MATERIAL UI
-import compose from 'recompose/compose';
-import { withStyles } from '@material-ui/styles'
+import compose from "recompose/compose";
+import { withStyles } from "@material-ui/styles";
 
 // Styled Components
 import styled from "styled-components";
@@ -60,6 +61,7 @@ const FooterContentContainer = styled.div`
 
   width: 100%;
 `;
+
 const FooterContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -73,23 +75,22 @@ const FooterContent = styled.div`
   }
 `;
 
-
 // Material UI Styling
 const styles = theme => ({
   MaterialUI_withStyles_footer: {
     backgroundColor: colors.footer
   }
-})
+});
 
 class Footer extends Component {
   render() {
-    const { classes } = this.props
+    const { classes } = this.props;
 
     return (
       <FooterContainer className="footerContainer">
-        <StyledAppBar 
+        <StyledAppBar
           position="static"
-          // className="AppBar_materialUI" 
+          // className="AppBar_materialUI"
           className={classes.MaterialUI_withStyles_footer}
         >
           <StyledToolbar className="ToolBar_materialUI">
@@ -130,5 +131,8 @@ class Footer extends Component {
 
 export default compose(
   withStyles(styles),
-  connect(null, {})
-)(Footer)
+  connect(
+    null,
+    {}
+  )
+)(Footer);
