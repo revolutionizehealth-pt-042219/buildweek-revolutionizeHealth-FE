@@ -1,6 +1,7 @@
 // REACT
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UserComponent from "./UserComponent/UserComponent";
 
 // REDUX
 import { connect } from "react-redux";
@@ -67,19 +68,6 @@ class Header extends Component {
     }));
   };
 
-  GoTo_UserProfile = e => {
-    // this.props.history.push('/user')
-    console.log(this.props);
-  };
-
-  GoTo_SignUp = e => {
-    e.preventDefault();
-    console.log("CLICKED");
-    console.log(this.props);
-
-    // this.props.history.push("/register");
-  };
-
   render() {
     const { classes } = this.props;
 
@@ -99,22 +87,14 @@ class Header extends Component {
 
                 {localStorage.getItem("token") && (
                   <div>
-                    <Button variant="outlined" onClick={this.GoTo_UserProfile}>
+                    <Button variant="outlined" component={Link} to="/user">
                       User Profile
                     </Button>
                     <Button variant="outlined"> Add Procedure </Button>
                   </div>
                 )}
                 {!localStorage.getItem("token") && (
-                  // <div>
-                  //   <Link to="/register">Sign Up</Link>
-                  // </div>
-                  <Button
-                    // onClick={this.GoTo_SignUp}
-                    component={Link}
-                    to="/login"
-                    variant="outlined"
-                  >
+                  <Button component={Link} to="/login" variant="outlined">
                     Login
                   </Button>
                 )}
