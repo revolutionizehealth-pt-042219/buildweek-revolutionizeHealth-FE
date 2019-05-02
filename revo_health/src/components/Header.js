@@ -1,5 +1,6 @@
 // REACT
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { connect } from "react-redux";
@@ -75,6 +76,8 @@ class Header extends Component {
     e.preventDefault();
     console.log("CLICKED");
     console.log(this.props);
+
+    // this.props.history.push("/register");
   };
 
   render() {
@@ -104,11 +107,17 @@ class Header extends Component {
                   </div>
                 )}
                 {!localStorage.getItem("token") && (
-                  <div>
-                    <Button onClick={this.GoTo_SignUp} variant="outlined">
-                      Sign Up
-                    </Button>
-                  </div>
+                  // <div>
+                  //   <Link to="/register">Sign Up</Link>
+                  // </div>
+                  <Button
+                    // onClick={this.GoTo_SignUp}
+                    component={Link}
+                    to="/register"
+                    variant="outlined"
+                  >
+                    Sign Up
+                  </Button>
                 )}
               </>
             ) : (

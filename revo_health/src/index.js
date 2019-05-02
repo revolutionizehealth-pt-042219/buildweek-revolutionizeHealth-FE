@@ -9,8 +9,6 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 
-
-
 // Dev Tools
 import { compose } from "redux";
 
@@ -21,8 +19,8 @@ import { rootReducer } from "./reducers/index";
 import App from "./App";
 
 // IMPORT DUMMY DATA
-import { patients } from './dummyData/dummyData'
-import { procedures } from './dummyData/dummyData'
+import { patients } from "./dummyData/dummyData";
+import { procedures } from "./dummyData/dummyData";
 
 // CSS
 // import './index.css';
@@ -33,37 +31,34 @@ import { procedures } from './dummyData/dummyData'
 // Store Enhancers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// PreLoaded State 
-  // const preloadedState = {
-  //   dummyPatients: patients,
-  //   dummyProcedures: procedures,
+// PreLoaded State
+// const preloadedState = {
+//   dummyPatients: patients,
+//   dummyProcedures: procedures,
 
+//   // DONT KNOW HOW ELSE TO GET THIS TO RENDER WITH APPROPRAITE INITIAL STATES
+//   users_reducer: {
+//     customers: [],
+//     error: '',
 
+//     is_gettingUsers: false,
 
-    
-  //   // DONT KNOW HOW ELSE TO GET THIS TO RENDER WITH APPROPRAITE INITIAL STATES
-  //   users_reducer: {
-  //     customers: [],
-  //     error: '', 
+//     is_addingUser: false,
 
-  //     is_gettingUsers: false,
+//     is_editingUser: false
+//   },
 
-  //     is_addingUser: false,
+//   procedures_reducer: {
+//     procedures: [],
+//     error: '',
 
-  //     is_editingUser: false
-  //   },
+//     is_gettingProcedures: false,
 
-  //   procedures_reducer: {
-  //     procedures: [],
-  //     error: '',
+//     is_addingProcedures: false,
 
-  //     is_gettingProcedures: false,
-
-  //     is_addingProcedures: false,
-
-  //     is_editingProcedures: false,
-  //   },
-  // }
+//     is_editingProcedures: false,
+//   },
+// }
 
 // Create Store
 const store = createStore(
@@ -71,7 +66,6 @@ const store = createStore(
   // preloadedState,
   composeEnhancers(applyMiddleware(thunk, logger))
 );
-
 
 // Render App
 ReactDOM.render(

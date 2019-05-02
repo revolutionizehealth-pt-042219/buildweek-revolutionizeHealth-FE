@@ -1,56 +1,51 @@
 // AXIOS
-    import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 
 // ACTION TYPES
-    // Getting Procedures
-    import {
-        LOGIN_START,
-        LOGIN_SUCCESS,
-        LOGIN_FAILURE,
-    } from '../actions/a_login'
+// Getting Procedures
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions/a_login";
 
-// Initial State 
+// Initial State
 const initialState = {
-    is_loggingIn: false,
-    token: localStorage.getItem('token'), 
-    user: jwt.decode(localStorage.getItem('token')),
-    error: '',
-}
+  is_loggingIn: false,
+  token: localStorage.getItem("token"),
+  user: jwt.decode(localStorage.getItem("token")),
+  error: ""
+};
 
-// Reducer 
+// Reducer
 export const login_reducer = (state = initialState, action) => {
-    // console.log(action.payload)
-    
-    switch(action.type) {
+  // console.log(action.payload)
 
+  switch (action.type) {
     // Getting Procedures
-        case LOGIN_START:
-            return {
-                ...state,
-                
-                is_loggingIn: true,
-                error: ''
-            }
-        case LOGIN_SUCCESS:
-            return {
-                ...state,
+    case LOGIN_START:
+      return {
+        ...state,
 
-                user: action.payload.user,
-                token: action.payload.data.token,
-                is_loggingIn: false,
-                error: ''
-            }
-        
-        case LOGIN_FAILURE:
-            return {
-                ...state,
+        is_loggingIn: true,
+        error: ""
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
 
-                is_loggingIn: false,
-                error: 'FAILED to login'
-            }
+        user: action.payload.user,
+        token: action.payload.data.token,
+        is_loggingIn: false,
+        error: ""
+      };
+
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+
+        is_loggingIn: false,
+        error: "FAILED to login"
+      };
 
     // Default
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};

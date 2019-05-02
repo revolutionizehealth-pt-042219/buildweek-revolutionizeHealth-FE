@@ -92,12 +92,10 @@ class LoginPage extends Component {
 
   handleLoginSubmit = e => {
     e.preventDefault();
-    
-    console.log("CHECK FOR HISTORY", this.props)
 
-    this.props.login(this.state)
-      .then( () => this.props.history.push('/'))
+    console.log("CHECK FOR HISTORY", this.props);
 
+    this.props.login(this.state).then(() => this.props.history.push("/"));
   };
 
   handleRegister = e => {
@@ -112,7 +110,6 @@ class LoginPage extends Component {
           <LogoWrapper>
             <AppLogo src={logo} alt="" />
           </LogoWrapper>
-
 
           <Typography component="h1" variant="h5">
             Welcome to Revo!
@@ -160,11 +157,11 @@ class LoginPage extends Component {
   }
 }
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = state => {
   return {
     is_loggingIn: state.login_reducer.is_loggingIn
-  }
-}
+  };
+};
 
 // Connect
 export default connect(
