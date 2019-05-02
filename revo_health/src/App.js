@@ -39,10 +39,16 @@ class App extends Component {
       <Router>
         <div className="App">
           {/* // Open Routes */}
-            <Route exact path="/"            component={Homepage} />
-            <Route exact path="/login"       component={LoginPage} />
-            <Route exact path="/register"    component={RegisterUser} />
-          
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Homepage {...props} />;
+            }}
+          />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterUser} />
+          <Route exact path="/updateUser" component={UpdateUser} />
 
           {/* // Protected Routes */}
           <PrivateRoute
