@@ -100,8 +100,7 @@ class Header extends Component {
                 {localStorage.getItem("token") && (
                   <div>
                     <Button variant="outlined" onClick={this.GoTo_UserProfile}>
-                      {" "}
-                      User Profile{" "}
+                      User Profile
                     </Button>
                     <Button variant="outlined"> Add Procedure </Button>
                   </div>
