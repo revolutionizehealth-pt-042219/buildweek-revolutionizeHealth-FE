@@ -17,7 +17,7 @@
   import Homepage from "./components/Homepage/Homepage";
 
   import RegisterUser from "./components/RegisterUser";
-  import UpdateUser from "./components/UpdateUser";
+  
 
 // IMPORT ACTION CREATORS
   // -1-
@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path="/"            component={Homepage} />
             <Route exact path="/login"       component={LoginPage} />
             <Route exact path="/register"    component={RegisterUser} />
-            <Route exact path="/updateUser"  component={UpdateUser} />
+          
 
           {/* // Protected Routes */}
             <PrivateRoute exact path="/user" component={UserComponent} />  
