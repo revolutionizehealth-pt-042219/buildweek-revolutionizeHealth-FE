@@ -85,6 +85,10 @@ class Header extends Component {
                   Close Menu
                 </Button>
 
+                <Button variant="outlined" component={Link} to="/">
+                  Homepage
+                </Button>
+
                 {localStorage.getItem("token") && (
                   <div>
                     <Button variant="outlined" component={Link} to="/user">
