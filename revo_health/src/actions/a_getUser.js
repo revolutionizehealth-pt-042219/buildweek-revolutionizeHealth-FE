@@ -22,7 +22,7 @@ export const get_user = userID => {
     // set authorization configuration
     const token = localStorage.getItem("token");
     console.log("TOKEN IN ACTION CREATOR", token);
-    let config = { headers: { authorization: token } };
+    let config = { headers: { authentication: token } };
     console.log("HEADERS IN ACTION CREATOR", config);
 
     // Start Axios Call
