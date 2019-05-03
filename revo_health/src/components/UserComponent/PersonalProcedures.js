@@ -48,13 +48,15 @@ const LoadMoreButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  padding-top: 20px;
+  padding: 10px 0px;
 `;
 
 class PersonalProcedures extends Component {
   render() {
     // console.log(this.props);
     // console.log(this.props.procedures);
+
+    console.log(this.props)
 
     return (
       <PersonalProceduresContainer className="PersonalProceduresContainer">
@@ -64,20 +66,23 @@ class PersonalProcedures extends Component {
               Your Logged Procedures
             </PersonalProceduresTitle>
 
-            {/* Map and return appropraite # of Procedures */}
-            {/* {this.props.procedures.map(procedure => {
-              return <Procedure procedure={procedure} />;
-            })} */}
-
-            {/* <Procedure />
-            <Procedure />
-            <Procedure /> */}
-
             <LoadMoreButtonContainer>
               <Fab color="primary" aria-label="">
                 <AddIcon />
               </Fab>
             </LoadMoreButtonContainer>
+
+            {this.props.procedures.map(procedure => {
+              console.log(procedure.user_id)
+              console.log(this.props.userID)
+
+              if (procedure.user_id === this.props.userID) {
+                return <Procedure procedure={procedure} />;
+              }
+
+            })}
+
+            
           </StyledCardContent>
         </StyledCard>
       </PersonalProceduresContainer>
@@ -85,10 +90,17 @@ class PersonalProcedures extends Component {
   }
 }
 
+
 // Map State To Props
+const mapStateToProps = state => {
+  return {
+    procedures: state.procedures_reducer.procedures,
+    userID: state.users_reducer.currentUser.id
+  };
+};
 
 // Connect
 export default connect(
-  null,
+  mapStateToProps,
   {}
 )(PersonalProcedures);

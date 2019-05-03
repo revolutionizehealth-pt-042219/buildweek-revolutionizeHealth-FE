@@ -79,9 +79,13 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    const currentUserID = this.props.userID;
-    console.log("UserProfileID = " + currentUserID);
-    this.props.get_user(currentUserID);
+
+    // Get Current User Information
+      const currentUserID = this.props.userID;
+      console.log("UserProfileID = " + currentUserID);
+      this.props.get_user(currentUserID);
+    
+    // Filter for current user ID
   }
 
   openEdit_view = e => {
@@ -108,6 +112,7 @@ class UserProfile extends Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props)
 
     return (
       <StyledCard
@@ -229,7 +234,7 @@ class UserProfile extends Component {
 const mapStateToProps = state => {
   return {
     userID: state.login_reducer.user.id,
-    currentUser: state.users_reducer.currentUser
+    currentUser: state.users_reducer.currentUser,
   };
 };
 

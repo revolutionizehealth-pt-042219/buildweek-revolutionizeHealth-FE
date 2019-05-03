@@ -92,7 +92,7 @@ class Footer extends Component {
           className={classes.MaterialUI_withStyles_footer}
         >
           <StyledToolbar className="ToolBar_materialUI">
-            <FooterTitle>FOOTER COMPONENT TITLE</FooterTitle>
+            {/* <FooterTitle>FOOTER COMPONENT TITLE</FooterTitle>
             <FooterContentContainer>
               <FooterContent className="footerContent_1">
                 <div className="UI_links">
@@ -111,7 +111,7 @@ class Footer extends Component {
               <FooterContent className="footerContent_3">
                 Footer Content Right
               </FooterContent>
-            </FooterContentContainer>
+            </FooterContentContainer> */}
           </StyledToolbar>
         </StyledAppBar>
       </FooterContainer>

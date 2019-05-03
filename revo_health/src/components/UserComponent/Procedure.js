@@ -170,13 +170,13 @@ class Procedure extends Component {
                 <InfoTitle className={classes.content_left_InfoTitle}>
                   Performed By:
                 </InfoTitle>
-                <Chip label={this.props.procedure.docotor} />
+                <Chip label={this.props.procedure.doctor_name} />
               </MediaQueries_InfoSection>
               <MediaQueries_InfoSection>
                 <InfoTitle className={classes.content_left_InfoTitle}>
                   At:
                 </InfoTitle>
-                <Chip label={this.props.procedure.hosptial_name} />
+                <Chip label={this.props.procedure.hospital_name} />
               </MediaQueries_InfoSection>
             </MediaQueries_Content_left>
 
