@@ -100,7 +100,6 @@ class LoginPage extends Component {
 
   handleRegister = e => {
     e.preventDefault();
-    console.log('FUCKING CLICK')
     this.props.history.push("/register");
   };
 

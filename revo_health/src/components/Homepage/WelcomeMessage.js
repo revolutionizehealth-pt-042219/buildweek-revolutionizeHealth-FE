@@ -104,7 +104,9 @@ class WelcomeMessage extends Component {
             <Button variant="outlined" component={Link} to="/register">
               Join the Community
             </Button>
-            <Button variant="outlined">Add A Procedure</Button>
+            <Button variant="outlined" component={Link} to="/addProcedure">
+              Add A Procedure
+            </Button>
           </div>
         </MediaQueried_callToAction>
       </MediaQueries_WelcomeMessage>

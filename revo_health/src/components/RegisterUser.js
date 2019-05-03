@@ -1,5 +1,6 @@
 // REACT
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { connect } from "react-redux";
@@ -211,6 +212,18 @@ class RegisterUser extends Component {
               color="primary"
             >
               Register User
+            </StyledButton>
+
+            <StyledButton
+              className="register"
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/"
+            >
+              Go Back
             </StyledButton>
           </form>
         </StyledPaper>
