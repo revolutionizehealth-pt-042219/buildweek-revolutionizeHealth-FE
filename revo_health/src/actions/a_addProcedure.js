@@ -10,15 +10,18 @@ export const ADD_PROCEDURE_SUCCESS = "ADD_PROCEDURE_SUCCESS";
 export const ADD_PROCEDURE_FAILURE = "ADD_PROCEDURE_FAILURE";
 
 // Action Creator
-export const add_procedure = () => {
-  console.log("inside add_procedure action creator");
+export const add_procedure = newProcedure => {
+  console.log("inside add_procedure action creator = " + newProcedure);
 
   // Send First Action
   return dispatch => {
     dispatch({ type: ADD_PROCEDURE_START });
     // Start Axios Call
     axios
-      .get()
+      .get(
+        "https://buildweek-revo-health-be.herokuapp.com/api/procedures",
+        newProcedure
+      )
       .then(res => {
         console.log(res);
 

@@ -94,7 +94,14 @@ class Header extends Component {
                     <Button variant="outlined" component={Link} to="/user">
                       User Profile
                     </Button>
-                    <Button variant="outlined"> Add Procedure </Button>
+                    <Button
+                      variant="outlined"
+                      component={Link}
+                      to="/addProcedure"
+                    >
+                      {" "}
+                      Add Procedure{" "}
+                    </Button>
                   </div>
                 )}
                 {!localStorage.getItem("token") && (
