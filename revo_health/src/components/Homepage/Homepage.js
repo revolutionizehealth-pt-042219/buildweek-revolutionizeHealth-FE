@@ -68,7 +68,7 @@ class Homepage extends Component {
           <StyledHomepageBody>
             {/* <HomepageTable /> */}
             <EnhancedTable />
-            <Map />
+            {/* <Map /> */}
           </StyledHomepageBody>
         </div>
         <Footer />
