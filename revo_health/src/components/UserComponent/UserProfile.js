@@ -25,6 +25,7 @@ import { withStyles } from "@material-ui/styles";
 // -1-
 // Get User Info
 import { get_user } from "../../actions/a_getUser";
+import { edit_user } from '../../actions/a_editUser'
 
 // Styled Components
 import styled from "styled-components";
@@ -65,6 +66,7 @@ class UserProfile extends Component {
     this.state = {
       editUser_view: false,
       udpateUserObj: {
+        id: this.props.currentUser.id,
         type: undefined,
         first_name: undefined,
         last_name: undefined,
@@ -99,7 +101,9 @@ class UserProfile extends Component {
   };
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    // this.setState({ [e.target.name]: e.target.value });
+
+    this.setState( { udpateUserObj: {...this.state.udpateUserObj, [e.target.name]: e.target.value }})
   };
 
   submit_userProfileEdits = e => {
@@ -108,11 +112,15 @@ class UserProfile extends Component {
 
     // CALL EDIT ACTION CREATOR
     // make sure to MATCH SHAPE before sending OBJECT to ACTION CREATOR
+    this.props.edit_user(this.state.udpateUserObj)
+
+
+
   };
 
   render() {
     const { classes } = this.props;
-    console.log(this.props)
+    console.log('USER PROFILE PROPS',this.props)
 
     return (
       <StyledCard
@@ -243,7 +251,8 @@ export default compose(
   connect(
     mapStateToProps,
     {
-      get_user
+      get_user,
+      edit_user
     }
   )
 )(UserProfile);
