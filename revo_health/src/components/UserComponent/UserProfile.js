@@ -140,8 +140,10 @@ class UserProfile extends Component {
                       name: "type"
                     }}
                   >
-                    <MenuItem value={"Patient"}>Patient</MenuItem>
-                    <MenuItem value={"Doctor"}>Doctor</MenuItem>
+                    {/* <MenuItem value={"Patient"}>Patient</MenuItem>
+                    <MenuItem value={"Doctor"}>Doctor</MenuItem> */}
+                    <MenuItem value={"patient"}>Patient</MenuItem>
+                    <MenuItem value={"doctor"}>Doctor</MenuItem>
                   </Select>
                 </FormControl>
 

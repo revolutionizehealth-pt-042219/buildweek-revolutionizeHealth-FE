@@ -80,7 +80,7 @@ class EditProcedure extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            
         };
     }
 
@@ -94,66 +94,81 @@ class EditProcedure extends Component {
 
         return (
             <>
-                <div className='hospital_info'>
-                    <input 
-                        type='text'
-                        name='hospital_name'
-                        placeholder={this.props.procedure.hospital_name}
-                        />
-                    <input 
-                        type='text'
-                        name='city'
-                        placeholder={this.props.procedure.city}
-                        />
-                    <input 
-                        type='text'
-                        name='state'
-                        placeholder={this.props.procedure.state}
-                        />
-                    <input 
-                        type='text'
-                        name='street'
-                        placeholder={this.props.procedure.street}
-                        />
-                    <input 
-                        type='text'
-                        name='zip'
-                        placeholder={this.props.procedure.zip}
-                        />
+                <div>
+                    <div className='sectionTitle'>
+                        Hospital Info
+                    </div>
+                    <div className='hospital_info'>
+                        <input 
+                            type='text'
+                            name='hospital_name'
+                            placeholder={this.props.procedure.hospital_name}
+                            />
+                        <input 
+                            type='text'
+                            name='city'
+                            placeholder={this.props.procedure.city}
+                            />
+                        <input 
+                            type='text'
+                            name='state'
+                            placeholder={this.props.procedure.state}
+                            />
+                        <input 
+                            type='text'
+                            name='street'
+                            placeholder={this.props.procedure.street}
+                            />
+                        <input 
+                            type='text'
+                            name='zip'
+                            placeholder={this.props.procedure.zip}
+                            />
+                    </div>
                 </div>
-                <div className='procedure_nameInfo'>
-                    <input 
-                        type='text'
-                        name='procedure_name'
-                        placeholder={this.props.procedure.procedure_name}
-                        />
-                    <input 
-                        type='text'
-                        name='doctor_name'
-                        placeholder={this.props.procedure.procedure_name}
-                        />
+                <div>
+                    <div className='sectionTitle'>
+                        Procedure & Doctor Name
+                    </div>
+                    <div className='procedure_nameInfo'>
+                        <input 
+                            type='text'
+                            name='procedure_name'
+                            placeholder={this.props.procedure.procedure_name}
+                            />
+                        <input 
+                            type='text'
+                            name='doctor_name'
+                            placeholder={this.props.procedure.procedure_name}
+                            />
+                    </div>
                 </div>
-                <div className='procedure_costInfo'>
-                    <input 
-                        type='text'
-                        name='procedure_cost'
-                        placeholder={this.props.procedure.procedure_cost}
-                        />   
-                    <input 
-                        type='text'
-                        name='out_of_pocket'
-                        placeholder={this.props.procedure.out_of_pocket}
-                        />   
-                    <input 
-                        type='text'
-                        name='insurance_adjustment'
-                        placeholder={this.props.procedure.insurance_adjustment}
-                        />   
-                    <input 
-                        type='text'
-                        name='insurance_payment'
-                        placeholder={this.props.procedure.insurance_payment}
-                        />   
+                <div>
+                    <div className='sectionTitle'>
+                        Cost & Insurance Info
+                    </div>
+                    <div className='procedure_costInfo'>
+                        <input 
+                            type='text'
+                            name='procedure_cost'
+                            placeholder={this.props.procedure.procedure_cost}
+                            />   
+                        <input 
+                            type='text'
+                            name='out_of_pocket'
+                            placeholder={this.props.procedure.out_of_pocket}
+                            />   
+                        <input 
+                            type='text'
+                            name='insurance_adjustment'
+                            placeholder={this.props.procedure.insurance_adjustment}
+                            />   
+                        <input 
+                            type='text'
+                            name='insurance_payment'
+                            placeholder={this.props.procedure.insurance_payment}
+                            />   
+                    </div>
                 </div>
                 <Button 
                     size="small" 
