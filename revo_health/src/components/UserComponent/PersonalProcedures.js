@@ -1,10 +1,11 @@
 // REACT
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { connect } from "react-redux";
 
-// IMPORT ACTION CREATORS
+// IMPORT ACTION CREATORS 
 
 // COMPONENTS
 import Procedure from "./Procedure";
@@ -67,7 +68,11 @@ class PersonalProcedures extends Component {
             </PersonalProceduresTitle>
 
             <LoadMoreButtonContainer>
-              <Fab color="primary" aria-label="">
+              <Fab 
+                color="primary" 
+                aria-label=""
+                component={Link} to="/addProcedure"
+              >
                 <AddIcon />
               </Fab>
             </LoadMoreButtonContainer>

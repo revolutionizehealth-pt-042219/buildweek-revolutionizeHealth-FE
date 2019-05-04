@@ -11,15 +11,26 @@ export const EDIT_USER_FAILURE = "EDIT_USER_FAILURE";
 
 // Action Creator
 export const edit_user = passedItem => {
-  console.log(passedItem);
+  console.log('item passed to EDIT USER ACTION CREATOR: ', passedItem);
+  console.log('passedItem.id -> for specific path: ', passedItem.id);
 
   // Send First Action
   return dispatch => {
     dispatch({ type: EDIT_USER_START });
 
+    // set authorixation for configuration
+    const token = localStorage.getItem('token');
+    let config = { headers: { authentication: token } };
+      console.log(config)
+
+
     // Start Axiox Call
     axios
-      .get()
+      .put(
+        `https://buildweek-revo-health-be.herokuapp.com/api/users/${passedItem.id}`,
+        passedItem,
+        config
+      )
       .then(res => {
         console.log(res);
 

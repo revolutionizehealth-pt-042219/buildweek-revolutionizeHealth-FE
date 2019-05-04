@@ -22,6 +22,9 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 
+// COMPONENTS
+import EditProcedure from './EditProcedure'
+
 // STYLED COMPONENTS
 import styled from "styled-components";
 
@@ -31,6 +34,8 @@ import styled from "styled-components";
 // Add Procedure
 // -2-
 // Edit Procedure
+  import { edit_procedure } from '../../actions/a_editProcedure'
+
 // -3-
 // Delete Procedure
 
@@ -125,6 +130,29 @@ const InfoTitle = styled.h3``; // KEEP --> due to rendering H3 tag
 
 // -- ** -- RENDERING -- ** -- //
 class Procedure extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { 
+      show_editProcedure: false
+    }
+  }
+  
+  open_editProcedure = e => {
+    e.preventDefault();
+    this.toggle_editProcedure(e)
+    console.log('this.props.procedure', this.props.procedure)
+  }
+
+  toggle_editProcedure = e => {
+    e.preventDefault();
+
+    this.setState(prevState => ({
+      ...prevState,
+      show_editProcedure: !prevState.show_editProcedure
+    }));
+  };
+
+  
   render() {
     const { classes } = this.props;
 
@@ -217,7 +245,12 @@ class Procedure extends Component {
               </Paper>
 
               <MediaQueries_procedureActions>
-                <Button size="small" variant="outlined" color="secondary">
+                <Button 
+                  size="small" 
+                  variant="outlined" 
+                  color="secondary"
+                  onClick={this.open_editProcedure}
+                >
                   EDIT PROCEDURE
                 </Button>
                 <Button size="small" variant="outlined" color="secondary">
@@ -225,6 +258,9 @@ class Procedure extends Component {
                 </Button>
               </MediaQueries_procedureActions>
             </div>
+
+            {this.state.show_editProcedure && <EditProcedure procedure={this.props.procedure}/> }
+
           </MediaQueries_CardContent>
         </Card>
       </div>
@@ -245,6 +281,6 @@ export default compose(
   withStyles(styles),
   connect(
     null,
-    {}
+    { edit_procedure }
   )
 )(Procedure);
