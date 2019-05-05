@@ -1,6 +1,6 @@
 [build]
-base = "buildweek-revolutionizeHealth-FE/"
-publish = "buildweek-revolutionizeHealth-FE/build"
+base = "revo_health/"
+publish = "revo_health/build"
 command = "yarn build"
 
 [[redirects]]
