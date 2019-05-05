@@ -1,7 +1,8 @@
 [build]
-base = "revolutionizehealth-pt-042219/"
-publish = "revolutionizehealth-pt-042219/build"
+base = "buildweek-revolutionizeHealth-FE/"
+publish = "buildweek-revolutionizeHealth-FE/build"
 command = "yarn build"
+
 [[redirects]]
 from = "/*"
 to = "/index.html"
