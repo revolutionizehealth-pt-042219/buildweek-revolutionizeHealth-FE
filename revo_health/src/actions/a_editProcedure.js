@@ -16,6 +16,12 @@ export const edit_procedure = () => {
   // Send First Action
   return dispatch => {
     dispatch({ type: EDIT_PROCEDURE_START });
+
+    // set authorixation for configuration
+    const token = localStorage.getItem("token");
+    let config = { headers: { authentication: token } };
+    console.log(config);
+
     // Start Axios Call
     axios
       .get()

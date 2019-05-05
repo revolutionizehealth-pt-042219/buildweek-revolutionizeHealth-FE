@@ -104,6 +104,8 @@ class AddProcedure extends Component {
 
   handleRegister = e => {
     e.preventDefault();
+
+    this.props.add_procedure(this.state);
   };
 
   render() {
