@@ -1,6 +1,6 @@
 [build]
 base = "revo_health/"
-publish = "revo_health/build"
+publish = "revo_health/build/"
 command = "yarn build"
 
 [[redirects]]
