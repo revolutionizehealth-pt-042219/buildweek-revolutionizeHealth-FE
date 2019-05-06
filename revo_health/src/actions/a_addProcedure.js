@@ -16,11 +16,18 @@ export const add_procedure = newProcedure => {
   // Send First Action
   return dispatch => {
     dispatch({ type: ADD_PROCEDURE_START });
+
+    // set authorization for configuration
+    const token = localStorage.getItem("token");
+    let config = { headers: { authentication: token } };
+    console.log(config);
+
     // Start Axios Call
     axios
-      .get(
+      .post(
         "https://buildweek-revo-health-be.herokuapp.com/api/procedures",
-        newProcedure
+        newProcedure,
+        config
       )
       .then(res => {
         console.log(res);
