@@ -45,15 +45,17 @@ class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterUser} />
-          <Route exact path="/addProcedure" component={AddProcedure} />
+          {/* <Route exact path="/addProcedure" component={AddProcedure} /> */}
 
           {/* <Route exact path="/updateUser" component={UpdateUser} /> */}
 
           {/* // Protected Routes */}
           <PrivateRoute exact path="/user" component={UserComponent} />
+          <PrivateRoute exact path="/addProcedure" component={AddProcedure} />
+
 
           {/* // TESTING ROUTES */}
-          <Route exact path="/EnhancedTable" component={EnhancedTable} />
+          {/* <Route exact path="/EnhancedTable" component={EnhancedTable} /> */}
 
           {/* <PrivateRoute exact path="/addProcedure" component={} />
             <PrivateRoute exact path="/editProcedure" component={} />   */}

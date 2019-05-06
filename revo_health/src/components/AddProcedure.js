@@ -22,6 +22,10 @@ import {
   Typography
 } from "@material-ui/core";
 
+import TextField from '@material-ui/core/TextField';
+
+
+
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -82,6 +86,7 @@ class AddProcedure extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_id: this.props.currentUser.id,
       procedure_name: undefined,
       doctor_name: undefined,
       hospital_name: undefined,
@@ -105,7 +110,8 @@ class AddProcedure extends Component {
   handleRegister = e => {
     e.preventDefault();
 
-    this.props.add_procedure(this.state);
+    this.props.add_procedure(this.state)
+      .then(() => this.props.history.push('/'))
   };
 
   render() {
@@ -124,18 +130,18 @@ class AddProcedure extends Component {
             <FormControl margin="normal" required fullWidth>
               <InputLabel>Procedure Name</InputLabel>
               <Input
-                value={this.state.type}
-                onChange={this.handleInputChange}
                 name="procedure_name"
+                value={this.state.procedure_name}
+                onChange={this.handleInputChange}
               />
             </FormControl>
 
             <FormControl margin="normal" required fullWidth>
               <InputLabel>Doctor Name</InputLabel>
               <Input
-                value={this.state.type}
-                onChange={this.handleInputChange}
                 name="doctor_name"
+                value={this.state.doctor_name}
+                onChange={this.handleInputChange}
               />
             </FormControl>
 
@@ -143,6 +149,7 @@ class AddProcedure extends Component {
               <InputLabel>Hospital Name</InputLabel>
               <Input
                 name="hospital_name"
+                value={this.state.hospital_name}
                 type="text"
                 onChange={this.handleInputChange}
               />
@@ -152,6 +159,7 @@ class AddProcedure extends Component {
               <InputLabel>City</InputLabel>
               <Input
                 name="city"
+                value={this.state.city}
                 type="text"
                 onChange={this.handleInputChange}
               />
@@ -161,6 +169,7 @@ class AddProcedure extends Component {
               <InputLabel>State</InputLabel>
               <Input
                 name="state"
+                value={this.state.state}
                 type="text"
                 onChange={this.handleInputChange}
               />
@@ -170,15 +179,17 @@ class AddProcedure extends Component {
               <InputLabel>zip</InputLabel>
               <Input
                 name="zip"
-                type="password"
+                // value={this.state.zip}
+                type='number'
                 onChange={this.handleInputChange}
               />
             </FormControl>
 
             <FormControl margin="normal" required fullWidth>
               <InputLabel>street</InputLabel>
-              <Input
+              <Input 
                 name="street"
+                value={this.state.street}
                 type="text"
                 onChange={this.handleInputChange}
               />
@@ -188,7 +199,9 @@ class AddProcedure extends Component {
               <InputLabel>Procedure Cost</InputLabel>
               <Input
                 name="procedure_cost"
-                value={this.state.has_insurance}
+                value={this.state.procedure_cost}
+                type="number"
+                // value={this.state.has_insurance}
                 onChange={this.handleInputChange}
               />
             </FormControl>
@@ -197,7 +210,8 @@ class AddProcedure extends Component {
               <InputLabel>Insurance Payment</InputLabel>
               <Input
                 name="insurance_payment"
-                type="text"
+                type="number"
+                value={this.state.insurance_payment}
                 onChange={this.handleInputChange}
               />
             </FormControl>
@@ -206,7 +220,8 @@ class AddProcedure extends Component {
               <InputLabel>Insurance Adjustment</InputLabel>
               <Input
                 name="insurance_adjustment"
-                type="text"
+                type="number"
+                value={this.state.insurance_adjustment}
                 onChange={this.handleInputChange}
               />
             </FormControl>
@@ -215,7 +230,8 @@ class AddProcedure extends Component {
               <InputLabel>Out of Pocket Cost</InputLabel>
               <Input
                 name="out_of_pocket"
-                type="text"
+                type="number"
+                value={this.state.out_of_pocket}
                 onChange={this.handleInputChange}
               />
             </FormControl>
@@ -223,12 +239,14 @@ class AddProcedure extends Component {
             <FormControl margin="normal" required fullWidth>
               <InputLabel>Anonymous</InputLabel>
               <Select
-                name="anonymous"
-                value={this.state.type}
+                inputProps={{
+                  name:"anonymous",
+                }}
+                value={this.state.anonymous}
                 onChange={this.handleInputChange}
               >
-                <MenuItem value={"Yes"}>Yes Post Anonumously</MenuItem>
-                <MenuItem value={"No"}>No Make My Procedure Public</MenuItem>
+                <MenuItem value={true}>Yes Post Anonumously</MenuItem>
+                <MenuItem value={false}>No Make My UserName Public On This Procedure</MenuItem>
               </Select>
             </FormControl>
 
@@ -261,7 +279,9 @@ class AddProcedure extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    currentUser: state.users_reducer.currentUser,
+  };
 };
 
 // Connect

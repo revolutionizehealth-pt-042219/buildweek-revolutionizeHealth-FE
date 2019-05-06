@@ -46,7 +46,7 @@ const initialState = {
 
 // Reducer
 export const procedures_reducer = (state = initialState, action) => {
-  console.log("action", action);
+  // console.log("action", action);
 
   switch (action.type) {
     // Getting Procedures

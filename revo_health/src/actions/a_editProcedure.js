@@ -11,7 +11,7 @@ export const EDIT_PROCEDURE_FAILURE = "EDIT_PROCEDURE_FAILURE";
 
 // Action Creator
 export const edit_procedure = passedItem => {
-  console.log("inside edit_procedure action creator");
+  console.log("inside edit_procedure action creator", passedItem);
 
   // Send First Action
   return dispatch => {
@@ -27,7 +27,9 @@ export const edit_procedure = passedItem => {
       .put(
         `https://buildweek-revo-health-be.herokuapp.com/api/procedures/${
           passedItem.id
-        }`
+        }`,
+        passedItem,
+        config
       )
       .then(res => {
         console.log(res);

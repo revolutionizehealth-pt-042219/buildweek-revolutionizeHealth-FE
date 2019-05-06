@@ -101,12 +101,22 @@ class WelcomeMessage extends Component {
             Browse Our Community Contributions...Maybe Contribute Yourself :)
           </div>
           <div className="actionButtons">
-            <Button variant="outlined" component={Link} to="/register">
-              Join the Community
-            </Button>
-            <Button variant="outlined" component={Link} to="/addProcedure">
-              Add A Procedure
-            </Button>
+            {
+              !localStorage.getItem('token') && (
+                <Button variant="outlined" component={Link} to="/register">
+                  Join the Community
+                </Button>
+              )
+            }
+            
+            {
+              localStorage.getItem('token') && (
+                <Button variant="outlined" component={Link} to="/addProcedure">
+                  Add A Procedure
+                </Button>
+              )
+            }
+
           </div>
         </MediaQueried_callToAction>
       </MediaQueries_WelcomeMessage>

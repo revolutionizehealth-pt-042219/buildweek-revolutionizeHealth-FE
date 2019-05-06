@@ -51,6 +51,14 @@ const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .userProfile {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+  
 `;
 
 // Material UI Styling
@@ -215,7 +223,7 @@ class UserProfile extends Component {
             )}
 
             {!this.state.editUser_view && (
-              <div>
+              <div className='userProfile'>
                 <h3>{this.props.currentUser.type}</h3>
                 <h3>
                   {this.props.currentUser.first_name +

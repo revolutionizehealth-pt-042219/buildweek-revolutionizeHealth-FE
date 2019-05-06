@@ -11,7 +11,7 @@ export const ADD_PROCEDURE_FAILURE = "ADD_PROCEDURE_FAILURE";
 
 // Action Creator
 export const add_procedure = newProcedure => {
-  console.log("inside add_procedure action creator = " + newProcedure);
+  console.log("inside add_procedure action creator = ", newProcedure);
 
   // Send First Action
   return dispatch => {
@@ -20,10 +20,10 @@ export const add_procedure = newProcedure => {
     // set authorization for configuration
     const token = localStorage.getItem("token");
     let config = { headers: { authentication: token } };
-    console.log(config);
+    // console.log(config);
 
     // Start Axios Call
-    axios
+    return axios
       .post(
         "https://buildweek-revo-health-be.herokuapp.com/api/procedures",
         newProcedure,
