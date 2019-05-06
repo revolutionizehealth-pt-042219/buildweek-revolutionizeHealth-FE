@@ -227,8 +227,8 @@ class AddProcedure extends Component {
                 value={this.state.type}
                 onChange={this.handleInputChange}
               >
-                <MenuItem value={"Yes"}>Yes Post ANON</MenuItem>
-                <MenuItem value={"No"}>No Make My Shit Public</MenuItem>
+                <MenuItem value={"Yes"}>Yes Post Anonumously</MenuItem>
+                <MenuItem value={"No"}>No Make My Procedure Public</MenuItem>
               </Select>
             </FormControl>
 
