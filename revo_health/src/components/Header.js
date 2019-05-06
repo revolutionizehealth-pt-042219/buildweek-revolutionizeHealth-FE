@@ -34,6 +34,11 @@ const StyledAppBar = styled(AppBar)`
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
+
+  .headerButtons {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 const HeaderTitle = styled.div`
@@ -80,19 +85,26 @@ class Header extends Component {
         >
           <StyledToolbar className="ToolBar_materialUI">
             {this.state.showMenu ? (
-              <div>
-                <Button onClick={this.toggle_Menu} variant="outlined">
+              <div className='headerButtons'>
+                <Button 
+                  onClick={this.toggle_Menu} 
+                  variant="outlined"
+                  color="secondary"
+                >
                   Close Menu
                 </Button>
 
-                <Button variant="outlined" component={Link} to="/">
+                {/* <Button variant="outlined" component={Link} to="/">
                   Homepage
-                </Button>
+                </Button> */}
 
                 <br />
 
                 {localStorage.getItem("token") && (
                   <div>
+                    <Button variant="outlined" component={Link} to="/">
+                      Homepage
+                    </Button>
                     <Button variant="outlined" component={Link} to="/user">
                       User Profile
                     </Button>
@@ -101,8 +113,7 @@ class Header extends Component {
                       component={Link}
                       to="/addProcedure"
                     >
-                      {" "}
-                      Add Procedure{" "}
+                      Add Procedure
                     </Button>
                   </div>
                 )}

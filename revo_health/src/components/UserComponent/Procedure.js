@@ -52,6 +52,7 @@ import colors from "../../styles/colorVariables";
 const styles = theme => ({
   procedureCard: {
     display: "flex",
+    flexDirection: 'column;',
     marginBottom: "20px",
     backgroundColor: colors.procedureBackground
   },
@@ -259,9 +260,10 @@ class Procedure extends Component {
               </MediaQueries_procedureActions>
             </div>
 
-            {this.state.show_editProcedure && <EditProcedure procedure={this.props.procedure}/> }
 
           </MediaQueries_CardContent>
+
+          {this.state.show_editProcedure && <EditProcedure procedure={this.props.procedure}/> }
         </Card>
       </div>
     );
